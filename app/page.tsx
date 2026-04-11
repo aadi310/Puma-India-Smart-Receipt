@@ -15,6 +15,7 @@ import {
   LayoutGrid,
   Check,
   Lock,
+  ArrowRight,
   ArrowUpRight,
   Gift,
   Trophy,
