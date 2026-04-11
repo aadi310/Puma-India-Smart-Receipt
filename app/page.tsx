@@ -1039,7 +1039,7 @@ Powered by RDEP
         Review Submitted
       </div>
       <div className="text-[11px] text-gray-400 font-medium uppercase tracking-widest px-6 leading-relaxed">
-        Your performance report helps us elevate the PUMA experience.
+        Thank you for sharing your experience with PUMA.
       </div>
     </div>
   ) : (
@@ -1050,11 +1050,11 @@ Powered by RDEP
           <MessageSquare className="h-4 w-4 text-white" />
         </div>
         <h3 className="text-sm font-bold uppercase tracking-tight text-black">
-          Rate Your Gear Experience
+          Rate Your Experience
         </h3>
       </div>
 
-      {/* Performance Star Rating */}
+      {/* Golden Star Rating */}
       <div className="flex justify-center gap-4 py-2">
         {[1, 2, 3, 4, 5].map((star) => (
           <button
@@ -1068,7 +1068,7 @@ Powered by RDEP
             <Star
               className={`h-8 w-8 transition-colors ${
                 star <= rating 
-                  ? "fill-black text-black" 
+                  ? "fill-[#FFB800] text-[#FFB800]" 
                   : "text-gray-200"
               }`}
             />
@@ -1076,21 +1076,21 @@ Powered by RDEP
         ))}
       </div>
 
-      {/* Dynamic Performance Chips */}
+      {/* Feedback Chips */}
       {rating > 0 && (
         <div className="space-y-3">
           <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">
-            What stood out to you?
+            What did you like most?
           </div>
           <div className="flex flex-wrap gap-2">
             {(rating >= 4
               ? [
-                  "Premium Quality",
+                  "Product Quality",
                   "Fast Checkout",
                   "Store Staff",
                   "Great Selection",
                   "Easy Returns",
-                  "Elite Design",
+                  "Design",
                 ]
               : [
                   "Stock Issues",
@@ -1126,34 +1126,34 @@ Powered by RDEP
       {/* Optional Comment */}
       <div className="space-y-2">
         <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">
-          Detailed Report (Optional)
+          Additional Comments (Optional)
         </label>
         <textarea
           rows={3}
-          placeholder="Tell us about your PUMA experience..."
+          placeholder="Tell us about your visit..."
           className="w-full p-4 text-xs font-medium bg-gray-50 border border-gray-100 rounded-2xl focus:bg-white focus:border-[#BA2C2F] outline-none resize-none transition-all placeholder:text-gray-300"
           value={feedbackText}
           onChange={(e) => setFeedbackText(e.target.value)}
         />
       </div>
 
-      {/* Submit Button */}
+      {/* Submit Button with Design Quirk */}
       <div className="pt-2">
         <button
-          className={`w-full h-14 text-[11px] font-bold uppercase italic tracking-[0.2em] rounded-xl transition-all shadow-xl active:scale-[0.98] ${
+          className={`w-full h-14 text-[11px] font-bold uppercase tracking-[0.2em] rounded-xl transition-all shadow-xl active:scale-[0.98] ${
             rating 
               ? "bg-black text-white shadow-black/20 hover:bg-[#BA2C2F]" 
-              : "bg-gray-100 text-gray-300 cursor-not-allowed"
+              : "bg-transparent border-2 border-dashed border-gray-200 text-gray-300 cursor-not-allowed"
           }`}
           onClick={handleFeedbackSubmit}
           disabled={!rating}
         >
-          Submit Performance Report
+          {rating ? "Submit Review" : "Select a Rating"}
         </button>
       </div>
 
       <p className="text-[9px] font-bold text-center text-gray-300 uppercase tracking-tighter">
-        Your insights help PUMA push the limits of excellence.
+        Your feedback helps PUMA improve every day.
       </p>
     </div>
   )}
