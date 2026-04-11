@@ -1020,123 +1020,122 @@ Powered by RDEP
   </div>
 </div>
           
-      {/* Rewards Loyalty Section */}
-<div className="bg-white rounded-2xl shadow-md border border-gray-200 mt-4 mx-3 overflow-hidden">
-
-  {/* Banner */}
-  <div className="relative">
-    <img
-      src="https://www.dominos.co.in/blog/wp-content/uploads/2022/07/dominos-cheesy-rewards-loyalty-program.jpg"
-      alt="Domino's Rewards"
-      className="w-full h-36 object-cover"
-    />
-
-    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-
-    <div className="absolute bottom-4 left-4 right-4 text-white">
-      <div className="text-lg font-semibold leading-tight">
-        Domino's Rewards
+      {/* PUMA AdvoCAT Loyalty Section */}
+<div className="bg-white rounded-3xl shadow-xl border border-gray-100 mt-6 mx-4 p-6">
+  
+  {/* Header: Branding shifted to AdvoCAT */}
+  <div className="flex items-center justify-between mb-6">
+    <div className="flex items-center">
+      <div className="w-8 h-8 bg-[#BA2C2F] rounded-lg flex items-center justify-center mr-3 shadow-lg shadow-[#BA2C2F]/20">
+        <Trophy className="h-4 w-4 text-white" />
       </div>
-
-      <div className="text-xs opacity-90">
-        Earn slices with every order and unlock free pizza
+      <div>
+        <h3 className="text-sm font-bold uppercase tracking-tight text-black">AdvoCAT Rewards</h3>
+        <p className="text-[10px] font-medium text-gray-400 uppercase tracking-widest">Elite Member Status</p>
       </div>
+    </div>
+    <div className="text-right">
+      <span className="text-[10px] font-bold bg-black text-white px-3 py-1 rounded-full uppercase italic">
+        Pro Tier
+      </span>
     </div>
   </div>
 
-
-  <div className="p-4">
-
-    {/* Overview */}
-    <div className="grid grid-cols-3 gap-3 mb-4">
-
-      <div className="bg-[#F4F8FB] rounded-xl p-3 text-center border border-[#DDEAF2]">
-        <div className="text-lg font-semibold text-[#006491]">+2</div>
-        <div className="text-xs text-gray-600">Slices Earned</div>
+  {/* Points Overview: High-contrast Grid */}
+  <div className="grid grid-cols-2 gap-4 mb-6">
+    <div className="bg-gray-50 rounded-2xl p-4 border border-gray-100">
+      <div className="text-[9px] font-bold text-gray-400 uppercase tracking-tighter mb-1">Points Earned</div>
+      <div className="flex items-baseline">
+        <span className="text-xl font-bold text-black">+1,418</span>
+        <span className="ml-1 text-[10px] font-bold text-[#BA2C2F]">Pending</span>
       </div>
-
-      <div className="bg-[#F4F8FB] rounded-xl p-3 text-center border border-[#DDEAF2]">
-        <div className="text-lg font-semibold text-[#006491]">6</div>
-        <div className="text-xs text-gray-600">Total Slices</div>
-      </div>
-
-      <div className="bg-[#F4F8FB] rounded-xl p-3 text-center border border-[#DDEAF2]">
-        <div className="text-lg font-semibold text-[#006491]">Free Pizza</div>
-        <div className="text-xs text-gray-600">Next Reward</div>
-      </div>
-
     </div>
 
+    <div className="bg-gray-50 rounded-2xl p-4 border border-gray-100">
+      <div className="text-[9px] font-bold text-gray-400 uppercase tracking-tighter mb-1">Total Balance</div>
+      <div className="text-xl font-bold text-black">8,450</div>
+    </div>
+  </div>
 
-    {/* Progress */}
-    <div className="bg-[#F4F8FB] rounded-xl p-4 border border-[#DDEAF2]">
-
-      <div className="flex justify-between text-xs text-gray-600 mb-2">
-        <span>Reward Progress</span>
-        <span>6 / 10 slices</span>
+  {/* Tier Progress: Sophisticated Performance Bar */}
+  <div className="bg-black rounded-2xl p-5 shadow-xl shadow-black/10">
+    <div className="flex justify-between items-end mb-3">
+      <div>
+        <div className="text-[10px] font-bold text-white/50 uppercase tracking-widest">Next Tier</div>
+        <div className="text-sm font-bold text-white uppercase italic">Elite Status</div>
       </div>
-
-      <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
-        <div
-          className="h-full bg-[#E31837] rounded-full"
-          style={{ width: "60%" }}
-        />
+      <div className="text-right">
+        <span className="text-xs font-bold text-white tracking-tighter">₹15,000 / ₹25,000</span>
       </div>
-
-      <div className="text-xs text-gray-600 mt-2">
-        Only <span className="font-semibold text-[#E31837]">4 slices</span> away from your free pizza reward.
-      </div>
-
     </div>
 
-
-    {/* Reward Journey */}
-    <div className="mt-4">
-
-      <div className="text-sm font-semibold text-gray-900 mb-2">
-        Your Reward Journey
-      </div>
-
-      <div className="flex items-center justify-between text-center text-xs">
-
-        <div className="flex flex-col items-center">
-          <div className="w-8 h-8 rounded-full bg-[#006491] text-white flex items-center justify-center">✓</div>
-          <div className="mt-1">Garlic Bread</div>
-        </div>
-
-        <div className="flex-1 h-[2px] bg-gray-200 mx-2"></div>
-
-        <div className="flex flex-col items-center">
-          <div className="w-8 h-8 rounded-full bg-[#006491] text-white flex items-center justify-center">✓</div>
-          <div className="mt-1">Choco Lava</div>
-        </div>
-
-        <div className="flex-1 h-[2px] bg-gray-200 mx-2"></div>
-
-        <div className="flex flex-col items-center">
-          <div className="w-8 h-8 rounded-full border-2 border-[#E31837] text-[#E31837] flex items-center justify-center">🍕</div>
-          <div className="mt-1">Free Pizza</div>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    {/* CTA */}
-    <div className="mt-4">
-      <a
-        href="https://pizzaonline.dominos.co.in"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block w-full text-center bg-[#006491] text-white rounded-xl py-2 text-sm font-medium hover:opacity-90 transition"
+    {/* Custom Progress Bar */}
+    <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden mb-3">
+      <div 
+        className="h-full bg-[#BA2C2F] rounded-full relative"
+        style={{ width: "60%" }}
       >
-        View Domino's Rewards
-      </a>
+        <div className="absolute top-0 right-0 h-full w-4 bg-white/20 skew-x-12 transform translate-x-2" />
+      </div>
     </div>
 
+    <p className="text-[10px] font-medium text-white/60 leading-relaxed">
+      Spend <span className="text-white font-bold italic">₹10,000</span> more to unlock 15% point multipliers and exclusive event access.
+    </p>
   </div>
 
+  {/* Reward Vouchers: The "Journey" */}
+  <div className="mt-6">
+    <div className="text-[11px] font-bold text-black uppercase tracking-widest mb-4 flex items-center">
+      <Zap className="h-3 w-3 mr-2 text-[#BA2C2F]" />
+      Active Performance Perks
+    </div>
+
+    <div className="space-y-3">
+      {/* Voucher 1 */}
+      <div className="flex items-center justify-between p-3 border border-dashed border-gray-200 rounded-xl bg-gray-50/50">
+        <div className="flex items-center">
+          <div className="w-10 h-10 bg-white border border-gray-100 rounded-lg flex items-center justify-center mr-3">
+            <Ticket className="h-5 w-5 text-gray-400" />
+          </div>
+          <div>
+            <div className="text-[11px] font-bold text-black uppercase">₹500 Off Voucher</div>
+            <div className="text-[9px] font-medium text-gray-400 uppercase">Expires in 12 Days</div>
+          </div>
+        </div>
+        <button className="text-[10px] font-bold text-[#BA2C2F] uppercase tracking-tighter">
+          Redeem
+        </button>
+      </div>
+
+      {/* Birthday Perk */}
+      <div className="flex items-center justify-between p-3 border border-gray-100 rounded-xl">
+        <div className="flex items-center opacity-50">
+          <div className="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center mr-3">
+            <Gift className="h-5 w-5 text-gray-400" />
+          </div>
+          <div>
+            <div className="text-[11px] font-bold text-black uppercase">Birthday Surprise</div>
+            <div className="text-[9px] font-medium text-gray-400 uppercase">Unlocked in June</div>
+          </div>
+        </div>
+        <Lock className="h-3 w-3 text-gray-300 mr-2" />
+      </div>
+    </div>
+  </div>
+
+  {/* CTA: Portal Link */}
+  <div className="mt-6 pt-6 border-t border-gray-100">
+    <a
+      href="https://in.puma.com/in/en/account/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex items-center justify-center w-full bg-gray-50 hover:bg-black hover:text-white border border-gray-200 rounded-xl py-3 transition-all duration-300"
+    >
+      <span className="text-xs font-bold uppercase tracking-widest mr-2">AdvoCAT Portal</span>
+      <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+    </a>
+  </div>
 </div>
           
 {/* Promo Banner Carousel */}
