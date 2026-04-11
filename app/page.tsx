@@ -861,13 +861,13 @@ Powered by RDEP
          {/* Purchase Details Section */}
 <div className="bg-white rounded-3xl shadow-xl border border-gray-100 mt-6 mx-4 p-6">
 
-  {/* Header: Clean & Modern */}
+  {/* Header */}
   <div className="flex items-center justify-between mb-6">
-    <h3 className="text-sm font-black uppercase tracking-[0.2em] flex items-center text-black">
+    <h3 className="text-sm font-bold uppercase tracking-wider flex items-center text-black">
       <Package className="mr-2 h-4 w-4 text-[#BA2C2F]" />
       Purchase Summary
     </h3>
-    <span className="text-[10px] font-bold bg-black text-white px-3 py-1 rounded-full uppercase">
+    <span className="text-[10px] font-semibold bg-black text-white px-3 py-1 rounded-full uppercase">
       {currentReceipt.items.length} Units
     </span>
   </div>
@@ -877,7 +877,7 @@ Powered by RDEP
     {currentReceipt.items.map((product) => (
       <div
         key={product.id}
-        className="group border-l-4 border-[#BA2C2F] bg-gray-50/50 rounded-r-2xl p-4 transition-all"
+        className="border-l-2 border-[#BA2C2F] bg-gray-50/80 rounded-r-xl p-4"
       >
         {/* Item Header */}
         <div
@@ -885,93 +885,85 @@ Powered by RDEP
           onClick={() => toggleProductExpansion(product.id)}
         >
           <div className="flex items-start flex-1">
-            <div className="mt-1 mr-3">
-              <ChevronRight
-                className={`h-4 w-4 text-black transition-transform duration-300 ${
-                  expandedProducts.includes(product.id) ? "rotate-90" : ""
-                }`}
-              />
-            </div>
+            <ChevronRight
+              className={`h-4 w-4 mt-1 mr-2 text-black transition-transform duration-200 ${
+                expandedProducts.includes(product.id) ? "rotate-90" : ""
+              }`}
+            />
             <div>
-              <div className="font-black text-sm uppercase italic tracking-tight text-black">
+              <div className="font-bold text-sm uppercase tracking-tight text-black">
                 {product.name}
               </div>
-              <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-0.5">
+              <div className="text-[10px] font-medium text-gray-500 uppercase tracking-widest mt-0.5">
                 {product.category} • {product.color}
               </div>
             </div>
           </div>
 
           <div className="text-right">
-            <div className="text-[10px] font-bold text-gray-400 uppercase">
+            <div className="text-[10px] font-semibold text-gray-400 uppercase">
               QTY {product.quantity}
             </div>
-            <div className="font-black text-sm text-black mt-1">
+            <div className="font-bold text-sm text-black mt-1">
               ₹{product.price.toLocaleString('en-IN')}
             </div>
           </div>
         </div>
 
-        {/* Expanded Product Info: Technical Specs */}
+        {/* Expanded Section: Fixing the 'Size' fetch */}
         {expandedProducts.includes(product.id) && (
-          <div className="mt-4 pt-4 border-t border-gray-200/60 grid grid-cols-2 gap-y-3">
+          <div className="mt-4 pt-3 border-t border-gray-200 grid grid-cols-2 gap-y-2">
             <div className="flex flex-col">
-              <span className="text-[9px] font-bold text-gray-400 uppercase tracking-tighter">Article Number</span>
-              <span className="text-[11px] font-mono font-bold text-black uppercase">{product.itemCode}</span>
+              <span className="text-[9px] font-bold text-gray-400 uppercase">Article</span>
+              <span className="text-[11px] font-medium text-black uppercase">{product.itemCode}</span>
             </div>
             <div className="flex flex-col text-right">
-              <span className="text-[9px] font-bold text-gray-400 uppercase tracking-tighter">Selected Size</span>
-              <span className="text-[11px] font-bold text-black uppercase">{product.size}</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[9px] font-bold text-gray-400 uppercase tracking-tighter">Colorway</span>
-              <span className="text-[11px] font-bold text-black">{product.color}</span>
-            </div>
-            <div className="flex flex-col text-right">
-              <span className="text-[9px] font-bold text-gray-400 uppercase tracking-tighter">Tax (GST)</span>
-              <span className="text-[11px] font-bold text-black">₹{product.tax.toFixed(2)}</span>
+              <span className="text-[9px] font-bold text-gray-400 uppercase">Size</span>
+              {/* Ensure product.size exists in your data object */}
+              <span className="text-[11px] font-bold text-black uppercase">{product.size || "N/A"}</span>
             </div>
           </div>
         )}
 
-        {/* Item Feedback Toggle: Athletic Branding */}
-        <div className="mt-4">
+        {/* Feedback: Fixing the 'Rating' fetch */}
+        <div className="mt-3">
           <button
             onClick={() => toggleItemFeedback(product.id)}
-            className="flex items-center text-[10px] font-black uppercase tracking-widest text-[#BA2C2F] hover:opacity-80 transition-opacity"
+            className="flex items-center text-[10px] font-bold uppercase tracking-wider text-[#BA2C2F]"
           >
-            {expandedItemFeedback.includes(product.id) ? "Close Review" : "Rate Gear Performance"}
-            <Star className={`ml-1.5 h-3 w-3 ${expandedItemFeedback.includes(product.id) ? "fill-[#BA2C2F]" : ""}`} />
+            {expandedItemFeedback.includes(product.id) ? "Close Review" : "Rate Product"}
+            <Star className={`ml-1 h-3 w-3 ${expandedItemFeedback.includes(product.id) ? "fill-[#BA2C2F]" : ""}`} />
           </button>
         </div>
 
-        {/* Item Feedback Panel */}
+        {/* Feedback Panel */}
         {expandedItemFeedback.includes(product.id) && (
-          <div className="mt-4 bg-white rounded-2xl p-4 shadow-inner border border-gray-100">
-            <div className="flex justify-center gap-3 mb-4">
+          <div className="mt-3 bg-white rounded-xl p-4 border border-gray-100 shadow-sm">
+            <div className="flex justify-center gap-2 mb-4">
               {[1, 2, 3, 4, 5].map((star) => (
                 <button key={star} onClick={() => setItemRating(product.id, star)}>
                   <Star
-                    className={`h-6 w-6 transition-all ${
+                    className={`h-5 w-5 ${
+                      // This ensures the current rating state is reflected visually
                       star <= (itemFeedback[product.id]?.rating || 0)
-                        ? "fill-black text-black scale-110"
-                        : "text-gray-200 hover:text-gray-300"
+                        ? "fill-black text-black"
+                        : "text-gray-200"
                     }`}
                   />
                 </button>
               ))}
             </div>
             <div className="flex flex-wrap gap-2 justify-center">
-              {["Comfort", "Durability", "Fit", "Style"].map((tag) => {
-                const active = itemFeedback[product.id]?.tags?.includes(tag);
+              {["Comfort", "Fit", "Style", "Quality"].map((tag) => {
+                const isActive = itemFeedback[product.id]?.tags?.includes(tag);
                 return (
                   <button
                     key={tag}
                     onClick={() => toggleItemTag(product.id, tag)}
-                    className={`text-[9px] font-black uppercase tracking-tighter px-4 py-1.5 rounded-full border-2 transition-all ${
-                      active
+                    className={`text-[9px] font-semibold uppercase px-3 py-1 rounded-full border transition-colors ${
+                      isActive
                         ? "bg-black text-white border-black"
-                        : "border-gray-100 text-gray-400 hover:border-gray-200"
+                        : "border-gray-200 text-gray-500 hover:bg-gray-50"
                     }`}
                   >
                     {tag}
@@ -986,45 +978,24 @@ Powered by RDEP
   </div>
 
   {/* Totals Section */}
-  <div className="mt-8 pt-6 border-t-2 border-dashed border-gray-100 space-y-3">
-    <div className="flex justify-between text-[11px] font-bold uppercase tracking-widest text-gray-400">
+  <div className="mt-8 pt-6 border-t border-gray-100 space-y-2">
+    <div className="flex justify-between text-[11px] font-semibold text-gray-500 uppercase">
       <span>Subtotal</span>
-      <span className="text-black font-mono">₹{currentReceipt.subtotal.toLocaleString('en-IN')}</span>
+      <span className="text-black">₹{currentReceipt.subtotal.toLocaleString('en-IN')}</span>
     </div>
-    <div className="flex justify-between text-[11px] font-bold uppercase tracking-widest text-gray-400">
-      <span>Taxes & Duties</span>
-      <span className="text-black font-mono">₹{currentReceipt.tax.toLocaleString('en-IN')}</span>
+    <div className="flex justify-between text-[11px] font-semibold text-gray-500 uppercase">
+      <span>GST (12%)</span>
+      <span className="text-black">₹{currentReceipt.tax.toLocaleString('en-IN')}</span>
     </div>
-    <div className="flex justify-between items-center pt-4 mt-2 border-t border-gray-100">
-      <span className="text-sm font-black uppercase italic tracking-tighter text-black">Total Paid</span>
-      <span className="text-2xl font-black text-black tabular-nums">
+    <div className="flex justify-between items-center pt-4 mt-2 border-t border-gray-200">
+      <span className="text-sm font-bold uppercase text-black">Total Paid</span>
+      <span className="text-xl font-bold text-black tracking-tighter">
         ₹{currentReceipt.total.toLocaleString('en-IN')}
       </span>
     </div>
   </div>
-
-  {/* Payment Method: Minimalist */}
-  <div className="mt-6">
-    <div className="bg-black rounded-2xl p-4 flex items-center justify-between shadow-lg shadow-black/10">
-      <div className="flex items-center">
-        <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center mr-4 border border-white/10">
-          <CreditCard className="w-5 h-5 text-white" />
-        </div>
-        <div>
-          <div className="text-[10px] font-black text-white/50 uppercase tracking-[0.2em]">Method</div>
-          <div className="text-xs font-bold text-white tracking-widest uppercase">
-            VISA •••• 4532
-          </div>
-        </div>
-      </div>
-      <div className="h-8 w-[1px] bg-white/10 mx-2" />
-      <div className="text-right">
-        <div className="text-[10px] font-black text-[#BA2C2F] uppercase">Authorized</div>
-      </div>
-    </div>
-  </div>
 </div>
-
+          
       {/* Rewards Loyalty Section */}
 <div className="bg-white rounded-2xl shadow-md border border-gray-200 mt-4 mx-3 overflow-hidden">
 
