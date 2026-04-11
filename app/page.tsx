@@ -13,6 +13,7 @@ import { Textarea } from "@/components/ui/textarea"
 import {
   ChevronRight,
   LayoutGrid,
+  Headset,
   Check,
   Lock,
   ArrowRight,
@@ -1588,107 +1589,114 @@ Powered by RDEP
   </p>
 </div>
           
-         {/* Receipt Actions */}
-<div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
-
-  <div className="grid grid-cols-3 gap-3">
+         {/* Receipt Actions Section */}
+<div className="bg-white rounded-3xl border border-gray-100 shadow-xl mx-4 mt-6 p-6">
+  <div className="grid grid-cols-3 gap-4">
 
     {/* Order History */}
     <button
       ref={historyButtonRef}
       onClick={handleTransactionHistoryOpen}
-      className="flex flex-col items-center justify-center bg-gray-50 border border-gray-200 rounded-xl py-3 active:scale-[0.98]"
+      className="flex flex-col items-center justify-center bg-gray-50 border border-gray-100 rounded-2xl py-4 transition-all hover:bg-black hover:text-white group active:scale-[0.95]"
     >
-      <History className="h-5 w-5 text-[#006491] mb-1" />
-      <span className="text-[11px] font-medium text-gray-700">
-        Orders
+      <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mb-2 shadow-sm group-hover:bg-white/10">
+        <History className="h-5 w-5 text-black group-hover:text-[#BA2C2F]" />
+      </div>
+      <span className="text-[10px] font-bold uppercase tracking-wider">
+        History
       </span>
     </button>
-
 
     {/* Email Receipt */}
     <button
       onClick={handleEmailReceipt}
-      className="flex flex-col items-center justify-center bg-gray-50 border border-gray-200 rounded-xl py-3 active:scale-[0.98]"
+      className="flex flex-col items-center justify-center bg-gray-50 border border-gray-100 rounded-2xl py-4 transition-all hover:bg-black hover:text-white group active:scale-[0.95]"
     >
-      <Mail className="h-5 w-5 text-[#006491] mb-1" />
-      <span className="text-[11px] font-medium text-gray-700">
+      <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mb-2 shadow-sm group-hover:bg-white/10">
+        <Mail className="h-5 w-5 text-black group-hover:text-[#BA2C2F]" />
+      </div>
+      <span className="text-[10px] font-bold uppercase tracking-wider">
         Email
       </span>
     </button>
-
 
     {/* Download Receipt */}
     <button
       onClick={handleDownloadReceipt}
-      className="flex flex-col items-center justify-center bg-gray-50 border border-gray-200 rounded-xl py-3 active:scale-[0.98]"
+      className="flex flex-col items-center justify-center bg-gray-50 border border-gray-100 rounded-2xl py-4 transition-all hover:bg-black hover:text-white group active:scale-[0.95]"
     >
-      <Download className="h-5 w-5 text-[#006491] mb-1" />
-      <span className="text-[11px] font-medium text-gray-700">
-        Download
+      <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mb-2 shadow-sm group-hover:bg-white/10">
+        <Download className="h-5 w-5 text-black group-hover:text-[#BA2C2F]" />
+      </div>
+      <span className="text-[10px] font-bold uppercase tracking-wider">
+        PDF
       </span>
     </button>
 
   </div>
-
 </div>
           
        {/* Need Help Section */}
-<div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
+<div className="bg-white rounded-3xl border border-gray-100 shadow-xl mx-4 mt-6 p-6">
 
   {/* Header */}
-  <div className="flex items-center mb-3">
-
-    <div className="bg-[#E31837] p-2 rounded-lg mr-3">
-      <Send className="h-4 w-4 text-white" />
+  <div className="flex items-center mb-6">
+    <div className="bg-black p-2.5 rounded-xl mr-4 shadow-lg shadow-black/10">
+      <Headset className="h-5 w-5 text-white" />
     </div>
-
-    <h3 className="text-sm font-semibold text-gray-900">
-      Domino's Support
-    </h3>
-
+    <div>
+      <h3 className="text-sm font-bold uppercase tracking-tight text-black">
+        PUMA Support
+      </h3>
+      <p className="text-[10px] font-medium text-gray-400 uppercase tracking-widest">
+        Available 24/7 for Gear Assistance
+      </p>
+    </div>
   </div>
 
+  <div className="grid grid-cols-3 gap-4">
 
-  <div className="grid grid-cols-3 gap-3">
-
-    {/* Chat */}
+    {/* WhatsApp Chat */}
     <button
       onClick={handleWhatsApp}
-      className="flex flex-col items-center justify-center bg-gray-50 border border-gray-200 rounded-xl py-3 active:scale-[0.98]"
+      className="flex flex-col items-center justify-center bg-gray-50 border border-gray-100 rounded-2xl py-4 transition-all hover:border-[#BA2C2F] active:scale-[0.95]"
     >
-      <MessageSquare className="h-5 w-5 text-[#006491] mb-1" />
-      <span className="text-[11px] font-medium text-gray-700">
-        Chat
+      <MessageSquare className="h-5 w-5 text-black mb-2" />
+      <span className="text-[10px] font-bold uppercase tracking-wider text-gray-700">
+        WhatsApp
       </span>
     </button>
 
-
-    {/* Call */}
+    {/* Call Support */}
     <button
       onClick={handleCall}
-      className="flex flex-col items-center justify-center bg-gray-50 border border-gray-200 rounded-xl py-3 active:scale-[0.98]"
+      className="flex flex-col items-center justify-center bg-gray-50 border border-gray-100 rounded-2xl py-4 transition-all hover:border-[#BA2C2F] active:scale-[0.95]"
     >
-      <Phone className="h-5 w-5 text-[#006491] mb-1" />
-      <span className="text-[11px] font-medium text-gray-700">
+      <Phone className="h-5 w-5 text-black mb-2" />
+      <span className="text-[10px] font-bold uppercase tracking-wider text-gray-700">
         Call
       </span>
     </button>
 
-
-    {/* Email */}
+    {/* Email Support */}
     <button
       onClick={handleEmail}
-      className="flex flex-col items-center justify-center bg-gray-50 border border-gray-200 rounded-xl py-3 active:scale-[0.98]"
+      className="flex flex-col items-center justify-center bg-gray-50 border border-gray-100 rounded-2xl py-4 transition-all hover:border-[#BA2C2F] active:scale-[0.95]"
     >
-      <Mail className="h-5 w-5 text-[#006491] mb-1" />
-      <span className="text-[11px] font-medium text-gray-700">
+      <Mail className="h-5 w-5 text-black mb-2" />
+      <span className="text-[10px] font-bold uppercase tracking-wider text-gray-700">
         Email
       </span>
     </button>
 
   </div>
 
+  {/* Footer Helper */}
+  <div className="mt-6 text-center">
+    <p className="text-[9px] font-bold text-gray-300 uppercase tracking-[0.1em]">
+      Reference Order ID: {currentReceipt.orderId}
+    </p>
+  </div>
 </div>
 
       {/* Social Media & Store Details */}
