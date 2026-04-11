@@ -829,7 +829,7 @@ Powered by RDEP
     {/* Greeting: Personal, Professional, and Bold */}
     <div className="mt-6">
       <div className="text-2xl font-black italic uppercase tracking-tight text-black">
-        CONFIRMED, {customerName}
+        Thank you, {customerName}
       </div>
       <div className="text-xs uppercase tracking-widest text-gray-500 font-medium mt-1">
         Summary of your PUMA India purchase
@@ -859,7 +859,7 @@ Powered by RDEP
       {/* Transaction ID: Clean */}
       <div className="flex flex-col">
         <span className="text-[10px] uppercase font-bold text-gray-400 tracking-wider">
-          Transaction ID
+          Receipt ID
         </span>
         <span className="text-sm font-mono font-bold text-black mt-1">
           #{currentReceipt.id.slice(-8)}
@@ -869,12 +869,12 @@ Powered by RDEP
       {/* Date & Time: Re-added Time */}
       <div className="flex flex-col text-right">
         <span className="text-[10px] uppercase font-bold text-gray-400 tracking-wider">
-          Purchase Date / Time
+          Date & Time
         </span>
         <div className="text-sm font-bold text-black mt-1">
           <span className="font-mono">{currentReceipt.date}</span>
           <span className="text-gray-400 mx-1">•</span>
-          <span className="font-medium text-xs text-gray-600">{currentReceipt.time}</span>
+          <span className="font-mono">{currentReceipt.time}</span>
         </div>
       </div>
     </div>
