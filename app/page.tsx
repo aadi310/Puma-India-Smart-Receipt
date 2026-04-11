@@ -1465,132 +1465,127 @@ Powered by RDEP
   </div>
 </div>
           
-{/* Just For You - Coupon Section */}
-<div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
-
-  {/* Header */}
-  <div className="flex items-center justify-between mb-4">
-
+{/* Featured Categories Section */}
+<div className="bg-white rounded-3xl shadow-xl border border-gray-100 mx-4 mt-6 p-6">
+  
+  {/* Section Header */}
+  <div className="flex items-center justify-between mb-6">
     <div className="flex items-center">
-
-      <div className="bg-[#E31837] p-2 rounded-lg mr-3">
-        <Sparkles className="h-4 w-4 text-white" />
+      <div className="bg-black p-2.5 rounded-xl mr-4 shadow-lg shadow-black/10">
+        <LayoutGrid className="h-4 w-4 text-white" />
       </div>
-
-      <h3 className="text-base font-semibold text-gray-900">
-        Just for You
+      <h3 className="text-sm font-bold uppercase tracking-tight text-black">
+        Explore More Gear
       </h3>
-
     </div>
-
   </div>
 
-
-  {/* Inline Toast */}
-  {couponToast && (
-    <div className="mb-3 text-center text-xs text-green-700 bg-green-50 border border-green-100 rounded-lg py-2">
-      ✓ Coupon copied
-    </div>
-  )}
-
-
-  <div className="space-y-3">
-
-    {/* Coupon 1 */}
-    <button
-      onClick={() => copyCoupon("GET30")}
-      className="w-full bg-[#F4F8FB] border border-[#DDEAF2] rounded-xl p-3 text-left active:scale-[0.99]"
+  {/* Category Grid */}
+  <div className="grid grid-cols-2 gap-4">
+    
+    {/* Backpacks */}
+    <a 
+      href="https://in.puma.com/in/en/mens/mens-accessories/mens-accessories-bags"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative aspect-square rounded-2xl overflow-hidden border border-gray-100 shadow-sm transition-transform active:scale-[0.98]"
     >
-
-      <div className="flex items-center justify-between">
-
-        <div>
-          <h4 className="text-sm font-semibold text-gray-900">
-            ₹30 Off Your Next Pizza
-          </h4>
-
-          <p className="text-[11px] text-gray-500">
-            Use code <span className="font-bold text-[#E31837]">GET30</span>
-          </p>
-        </div>
-
-        <div className="text-xl">🍕</div>
-
+      <Image 
+        src="/images/design-mode/backpack.png" 
+        alt="Backpacks" 
+        fill 
+        className="object-cover transition-transform duration-500 group-hover:scale-110"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+      <div className="absolute bottom-4 left-4">
+        <span className="text-[10px] font-bold text-white uppercase tracking-widest bg-[#BA2C2F] px-2 py-1 rounded-sm">
+          Backpacks
+        </span>
       </div>
+    </a>
 
-    </button>
-
-
-    {/* Coupon 2 */}
-    <button
-      onClick={() => copyCoupon("CHEESE20")}
-      className="w-full bg-[#F4F8FB] border border-[#DDEAF2] rounded-xl p-3 text-left active:scale-[0.99]"
+    {/* Jackets */}
+    <a 
+      href="https://in.puma.com/in/en/mens/mens-clothing/mens-clothing-jackets"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative aspect-square rounded-2xl overflow-hidden border border-gray-100 shadow-sm transition-transform active:scale-[0.98]"
     >
-
-      <div className="flex items-center justify-between">
-
-        <div>
-          <h4 className="text-sm font-semibold text-gray-900">
-            20% Off Cheese Burst Pizza
-          </h4>
-
-          <p className="text-[11px] text-gray-500">
-            Use code <span className="font-bold text-[#E31837]">CHEESE20</span>
-          </p>
-        </div>
-
-        <div className="text-xl">🧀</div>
-
+      <Image 
+        src="/images/design-mode/Jacket.png" 
+        alt="Jackets" 
+        fill 
+        className="object-cover transition-transform duration-500 group-hover:scale-110"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+      <div className="absolute bottom-4 left-4">
+        <span className="text-[10px] font-bold text-white uppercase tracking-widest bg-[#BA2C2F] px-2 py-1 rounded-sm">
+          Jackets
+        </span>
       </div>
+    </a>
 
-    </button>
-
-
-    {/* Coupon 3 */}
-    <button
-      onClick={() => copyCoupon("FREEGB")}
-      className="w-full bg-[#F4F8FB] border border-[#DDEAF2] rounded-xl p-3 text-left active:scale-[0.99]"
+    {/* Shoes */}
+    <a 
+      href="https://in.puma.com/in/en/mens/mens-shoes"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative aspect-square rounded-2xl overflow-hidden border border-gray-100 shadow-sm transition-transform active:scale-[0.98]"
     >
-
-      <div className="flex items-center justify-between">
-
-        <div>
-          <h4 className="text-sm font-semibold text-gray-900">
-            Free Garlic Bread
-          </h4>
-
-          <p className="text-[11px] text-gray-500">
-            Use code <span className="font-bold text-[#E31837]">FREEGB</span>
-          </p>
-        </div>
-
-        <div className="text-xl">🥖</div>
-
+      <Image 
+        src="/images/design-mode/shoes.png" 
+        alt="Shoes" 
+        fill 
+        className="object-cover transition-transform duration-500 group-hover:scale-110"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+      <div className="absolute bottom-4 left-4">
+        <span className="text-[10px] font-bold text-white uppercase tracking-widest bg-[#BA2C2F] px-2 py-1 rounded-sm">
+          Shoes
+        </span>
       </div>
+    </a>
 
-    </button>
-
+    {/* Gym Wear */}
+    <a 
+      href="https://in.puma.com/in/en/mens/mens-clothing/mens-clothing-t-shirts-and-tops"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative aspect-square rounded-2xl overflow-hidden border border-gray-100 shadow-sm transition-transform active:scale-[0.98]"
+    >
+      <Image 
+        src="/images/design-mode/gym-wear.png" 
+        alt="Gym Wear" 
+        fill 
+        className="object-cover transition-transform duration-500 group-hover:scale-110"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+      <div className="absolute bottom-4 left-4">
+        <span className="text-[10px] font-bold text-white uppercase tracking-widest bg-[#BA2C2F] px-2 py-1 rounded-sm">
+          Training
+        </span>
+      </div>
+    </a>
   </div>
 
+  {/* Overall Website Link */}
+  <div className="mt-8 pt-6 border-t border-gray-100">
+    <a 
+      href="https://in.puma.com/in/en/" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="flex items-center justify-between w-full h-14 px-6 bg-black text-white rounded-xl shadow-xl shadow-black/20 hover:bg-[#BA2C2F] transition-all group active:scale-[0.98]"
+    >
+      <span className="text-xs font-bold uppercase tracking-[0.2em]">Visit PUMA Store</span>
+      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+    </a>
+  </div>
 
-  {/* CTA */}
-  <a
-    href="https://www.dominos.co.in/"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <button className="w-full mt-4 bg-[#006491] text-white h-10 text-xs font-semibold rounded-xl transition active:scale-[0.98]">
-      Order Domino's
-    </button>
-  </a>
-
-
-  <p className="mt-2 text-[9px] text-center text-gray-400">
-    Tap a coupon to copy the code. Offers may vary by location.
+  <p className="text-[9px] font-bold text-center text-gray-300 uppercase tracking-tighter mt-4">
+    Exclusive drops and collections available online.
   </p>
-
 </div>
-
+          
          {/* Receipt Actions */}
 <div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
 
