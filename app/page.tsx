@@ -895,7 +895,7 @@ Powered by RDEP
                 {product.name}
               </div>
               <div className="text-[10px] font-medium text-gray-500 uppercase tracking-widest mt-0.5">
-                {product.category} • {product.color}
+                {product.category}
               </div>
             </div>
           </div>
@@ -910,22 +910,25 @@ Powered by RDEP
           </div>
         </div>
 
-        {/* Expanded Section: Fixing the 'Size' fetch */}
+        {/* Expanded Section: SKU and Color */}
         {expandedProducts.includes(product.id) && (
           <div className="mt-4 pt-3 border-t border-gray-200 grid grid-cols-2 gap-y-2">
             <div className="flex flex-col">
-              <span className="text-[9px] font-bold text-gray-400 uppercase">Article</span>
+              <span className="text-[9px] font-bold text-gray-400 uppercase">SKU</span>
               <span className="text-[11px] font-medium text-black uppercase">{product.itemCode}</span>
             </div>
             <div className="flex flex-col text-right">
-              <span className="text-[9px] font-bold text-gray-400 uppercase">Size</span>
-              {/* Ensure product.size exists in your data object */}
-              <span className="text-[11px] font-bold text-black uppercase">{product.size || "N/A"}</span>
+              <span className="text-[9px] font-bold text-gray-400 uppercase">Color</span>
+              <span className="text-[11px] font-bold text-black uppercase">{product.color}</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[9px] font-bold text-gray-400 uppercase">Tax (GST)</span>
+              <span className="text-[11px] font-medium text-black">₹{product.tax.toFixed(2)}</span>
             </div>
           </div>
         )}
 
-        {/* Feedback: Fixing the 'Rating' fetch */}
+        {/* Feedback Toggle */}
         <div className="mt-3">
           <button
             onClick={() => toggleItemFeedback(product.id)}
@@ -944,7 +947,6 @@ Powered by RDEP
                 <button key={star} onClick={() => setItemRating(product.id, star)}>
                   <Star
                     className={`h-5 w-5 ${
-                      // This ensures the current rating state is reflected visually
                       star <= (itemFeedback[product.id]?.rating || 0)
                         ? "fill-black text-black"
                         : "text-gray-200"
@@ -992,6 +994,28 @@ Powered by RDEP
       <span className="text-xl font-bold text-black tracking-tighter">
         ₹{currentReceipt.total.toLocaleString('en-IN')}
       </span>
+    </div>
+  </div>
+
+  {/* Payment Section */}
+  <div className="mt-6">
+    <div className="bg-black rounded-2xl p-4 flex items-center justify-between">
+      <div className="flex items-center">
+        <div className="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center mr-3">
+          <CreditCard className="w-5 h-5 text-white" />
+        </div>
+        <div>
+          <div className="text-[10px] font-semibold text-white/50 uppercase">Payment Method</div>
+          <div className="text-xs font-bold text-white uppercase tracking-wider">
+            Card •••• 4532
+          </div>
+        </div>
+      </div>
+      <div className="text-right">
+        <div className="text-sm font-bold text-white">
+          ₹{currentReceipt.total.toLocaleString('en-IN')}
+        </div>
+      </div>
     </div>
   </div>
 </div>
