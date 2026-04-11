@@ -149,7 +149,7 @@ const [expandedItemFeedback, setExpandedItemFeedback] = useState([])
   })
 }
 
-  const customerName = "Rahul"
+  const customerName = "Vikas"
 
   // Carousel refs and APIs
   const [promoApi, setPromoApi] = useState<CarouselApi>()
@@ -447,7 +447,7 @@ const [expandedItemFeedback, setExpandedItemFeedback] = useState([])
   }
 
   const handleEmailReceipt = () => {
-    window.open(`mailto:?subject=Receipt from Domino's Bangalore&body=Receipt ID: ${currentReceipt.id}`)
+    window.open(`mailto:?subject=Receipt from PUMA Bangalore&body=Receipt ID: ${currentReceipt.id}`)
   }
 
   const handleDownloadReceipt = () => {
@@ -456,308 +456,294 @@ const [expandedItemFeedback, setExpandedItemFeedback] = useState([])
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Domino's Digital Receipt</title>
+<title>PUMA Official Digital Receipt</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-font-family:'Poppins',sans-serif;
-font-size:14px;
-color:#111;
-background:#fff;
-width:800px;
-margin:0 auto;
-padding:24px;
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #000;
+    background: #fff;
+    width: 800px;
+    margin: 0 auto;
+    padding: 40px;
 }
 
 /* Header */
-
-.receipt-header{
-display:flex;
-justify-content:space-between;
-align-items:flex-start;
-margin-bottom:28px;
-padding-bottom:16px;
-border-bottom:3px solid #006491;
+.receipt-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 4px solid #000;
 }
 
-.company-info h1{
-font-size:30px;
-color:#006491;
-font-weight:700;
-margin-bottom:4px;
+.company-info h1 {
+    font-size: 36px;
+    color: #000;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
 }
 
-.company-info p{
-font-size:12px;
-color:#555;
-line-height:1.4;
+.company-info p {
+    font-size: 12px;
+    color: #444;
+    line-height: 1.6;
+    text-transform: uppercase;
+    font-weight: 500;
 }
 
-.bill-info{
-text-align:right;
-font-size:12px;
+.bill-info {
+    text-align: right;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
-.bill-info div{
-margin-bottom:4px;
+.bill-info div {
+    margin-bottom: 6px;
 }
 
-.bill-id{
-font-weight:600;
-color:#E31837;
+.bill-id {
+    font-weight: 700;
+    color: #BA2C2F;
 }
 
-/* Guest section */
-
-.customer-section{
-background:#F4F8FB;
-padding:14px;
-border-left:4px solid #006491;
-border-radius:0 8px 8px 0;
-margin-bottom:22px;
+/* Customer section */
+.customer-section {
+    background: #f9f9f9;
+    padding: 20px;
+    border-left: 6px solid #BA2C2F;
+    border-radius: 4px;
+    margin-bottom: 30px;
 }
 
-.customer-section h3{
-font-size:15px;
-color:#006491;
-font-weight:600;
-margin-bottom:2px;
+.customer-section h3 {
+    font-size: 14px;
+    color: #000;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    letter-spacing: 1px;
 }
 
-.customer-section p{
-font-size:12px;
-color:#666;
+.customer-section p {
+    font-size: 11px;
+    color: #666;
+    text-transform: uppercase;
+    font-weight: 500;
 }
 
 /* Table */
-
-.items-table{
-width:100%;
-border-collapse:collapse;
-margin-bottom:24px;
+.items-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
 }
 
-.items-table th{
-background:#006491;
-color:white;
-padding:10px 8px;
-text-align:left;
-font-size:11px;
-text-transform:uppercase;
-letter-spacing:0.5px;
+.items-table th {
+    background: #000;
+    color: white;
+    padding: 12px 10px;
+    text-align: left;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
 }
 
-.items-table td{
-padding:12px 8px;
-border-bottom:1px solid #eee;
-font-size:12px;
-vertical-align:top;
+.items-table td {
+    padding: 16px 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 12px;
+    vertical-align: middle;
 }
 
-.item-name{
-font-weight:600;
-margin-bottom:3px;
+.item-name {
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 4px;
 }
 
-.item-desc{
-font-size:11px;
-color:#666;
-}
-
-.item-specs{
-font-size:10px;
-color:#E31837;
-margin-top:4px;
-font-weight:600;
+.item-category {
+    font-size: 10px;
+    color: #888;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
 /* Totals */
-
-.totals-section{
-display:flex;
-justify-content:space-between;
-margin-bottom:20px;
+.totals-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
 }
 
-.items-count{
-font-weight:600;
+.items-count {
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #999;
 }
 
-.totals-table{
-text-align:right;
-min-width:200px;
+.totals-table {
+    text-align: right;
+    min-width: 250px;
 }
 
-.totals-table div{
-margin-bottom:6px;
-font-size:13px;
+.totals-table div {
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
-.net-total{
-font-size:18px;
-font-weight:700;
-color:#006491;
-border-top:2px solid #006491;
-padding-top:6px;
-margin-top:6px;
+.net-total {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000;
+    border-top: 3px solid #000;
+    padding-top: 10px;
+    margin-top: 10px;
 }
 
 /* Footer */
-
-.footer{
-text-align:center;
-margin-top:30px;
-padding-top:20px;
-border-top:1px dashed #ccc;
-font-size:12px;
-color:#555;
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 2px solid #f0f0f0;
+    font-size: 11px;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.footer strong{
-color:#E31837;
+.footer strong {
+    color: #BA2C2F;
+    font-size: 13px;
 }
 
-.powered{
-margin-top:10px;
-font-size:10px;
-color:#999;
-font-weight:600;
+.powered {
+    margin-top: 20px;
+    font-size: 9px;
+    color: #bbb;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
-@media print{
-body{
--webkit-print-color-adjust:exact;
-width:100%;
-padding:0;
+@media print {
+    body {
+        -webkit-print-color-adjust: exact;
+        width: 100%;
+        padding: 20px;
+    }
 }
-}
-
 </style>
 </head>
 
 <body>
 
 <div class="receipt-header">
+    <div class="company-info">
+        <h1>PUMA</h1>
+        <p>
+            <strong>PUMA India Retail</strong><br>
+            No 777/H, 100 Feet Rd, HAL 2nd Stage<br>
+            Indiranagar, Bengaluru 560008<br>
+            GSTIN: 29AAACP3423F1Z5
+        </p>
+    </div>
 
-<div class="company-info">
-<h1>Domino's</h1>
-<p>
-<strong>Domino's Pizza India</strong><br>
-Brigade Road<br>
-Bengaluru, Karnataka 560001<br>
-Phone: 1800-208-1234
-</p>
-</div>
-
-<div class="bill-info">
-<div><strong>Order ID:</strong> <span class="bill-id">DMBLR7891XQ12</span></div>
-<div><strong>Date:</strong> 05-03-2026 19:22</div>
-<div><strong>Store Associate:</strong> Rahul Kumar</div>
-</div>
-
+    <div class="bill-info">
+        <div>Order ID: <span class="bill-id">${currentReceipt.orderId}</span></div>
+        <div>Date: ${currentReceipt.date}</div>
+        <div>Store Lead: ${currentReceipt.associate}</div>
+    </div>
 </div>
 
 <div class="customer-section">
-<h3>Customer: ${customerName}</h3>
-<p>Thank you for ordering with Domino's!</p>
+    <h3>Athlete: ${customerName}</h3>
+    <p>Status: Verified Purchase</p>
 </div>
 
 <table class="items-table">
-
-<thead>
-<tr>
-<th style="width:50%">Menu Item</th>
-<th style="width:10%">Qty</th>
-<th style="width:15%">Size</th>
-<th style="width:12%">Price</th>
-<th style="width:13%">Total</th>
-</tr>
-</thead>
-
-<tbody>
-
-<tr>
-<td>
-<div class="item-name">Farmhouse Pizza</div>
-<div class="item-desc">Capsicum, onion, tomato, grilled mushroom & mozzarella cheese</div>
-<div class="item-specs">Type: Veg Pizza</div>
-</td>
-<td>1</td>
-<td>Medium</td>
-<td>₹399</td>
-<td><strong>₹399</strong></td>
-</tr>
-
-<tr>
-<td>
-<div class="item-name">Garlic Breadsticks</div>
-<div class="item-desc">Freshly baked breadsticks with garlic seasoning & cheese dip</div>
-<div class="item-specs">Side</div>
-</td>
-<td>1</td>
-<td>Regular</td>
-<td>₹149</td>
-<td><strong>₹149</strong></td>
-</tr>
-
-<tr>
-<td>
-<div class="item-name">Choco Lava Cake</div>
-<div class="item-desc">Warm chocolate cake with molten chocolate filling</div>
-<div class="item-specs">Dessert</div>
-</td>
-<td>1</td>
-<td>Single</td>
-<td>₹109</td>
-<td><strong>₹109</strong></td>
-</tr>
-
-</tbody>
+    <thead>
+        <tr>
+            <th style="width:60%">Product Description</th>
+            <th style="width:10%">Qty</th>
+            <th style="width:30%; text-align:right;">Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <div class="item-name">Velocity Nitro 4</div>
+                <div class="item-category">Running</div>
+            </td>
+            <td>1</td>
+            <td style="text-align:right;"><strong>₹11,999.00</strong></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="item-name">Train All Day Tee</div>
+                <div class="item-category">Training</div>
+            </td>
+            <td>1</td>
+            <td style="text-align:right;"><strong>₹1,079.00</strong></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="item-name">CR Cricket Shorts</div>
+                <div class="item-category">Cricket</div>
+            </td>
+            <td>1</td>
+            <td style="text-align:right;"><strong>₹1,099.00</strong></td>
+        </tr>
+    </tbody>
 </table>
 
 <div class="totals-section">
+    <div class="items-count">
+        Total Units: 3
+    </div>
 
-<div class="items-count">
-Items Ordered: 3
-</div>
-
-<div class="totals-table">
-<div>Subtotal: <strong>₹626</strong></div>
-<div>GST (5%): <strong>₹31</strong></div>
-<div class="net-total">Total: <strong>₹657</strong></div>
-</div>
-
+    <div class="totals-table">
+        <div>Subtotal: ₹12,658.03</div>
+        <div>GST (12%): ₹1,518.97</div>
+        <div class="net-total">Total Paid: ₹14,177.00</div>
+    </div>
 </div>
 
 <div class="footer">
+    <p><strong>Forever Faster.</strong></p>
+    <p style="margin-top: 8px;">Explore latest collections at in.puma.com</p>
 
-<p><strong>Thanks for choosing Domino's!</strong></p>
-<p>Order again at www.dominos.co.in</p>
-
-<div class="powered">
-Powered by RDEP
-</div>
-
+    <div class="powered">
+        POWERED BY RDEP
+    </div>
 </div>
 
 </body>
 </html>
-    `
+`
 
     const blob = new Blob([receiptContent], { type: "text/html" })
     const url = URL.createObjectURL(blob)
     const link = document.createElement("a")
     link.href = url
-    link.download = "Dominos_Receipt_SK251107001.html"
+    link.download = "PUMA_Receipt_SK251107001.html"
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
