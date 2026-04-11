@@ -12,6 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea"
 import {
   ChevronRight,
+  Check,
   Lock,
   ArrowUpRight,
   Gift,
@@ -1026,6 +1027,137 @@ Powered by RDEP
   </div>
 </div>
           
+          {/* Feedback Section */}
+<div className="bg-white rounded-3xl border border-gray-100 shadow-xl mx-4 mt-6 p-6">
+
+  {feedbackSubmitted ? (
+    <div className="text-center py-8 bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+      <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-black/20">
+        <Check className="w-8 h-8 text-[#BA2C2F]" />
+      </div>
+      <div className="text-sm font-bold uppercase tracking-tight text-black mb-1">
+        Review Submitted
+      </div>
+      <div className="text-[11px] text-gray-400 font-medium uppercase tracking-widest px-6 leading-relaxed">
+        Your performance report helps us elevate the PUMA experience.
+      </div>
+    </div>
+  ) : (
+    <div className="space-y-6">
+      {/* Header */}
+      <div className="flex items-center">
+        <div className="bg-black p-2.5 rounded-xl mr-4 shadow-lg shadow-black/10">
+          <MessageSquare className="h-4 w-4 text-white" />
+        </div>
+        <h3 className="text-sm font-bold uppercase tracking-tight text-black">
+          Rate Your Gear Experience
+        </h3>
+      </div>
+
+      {/* Performance Star Rating */}
+      <div className="flex justify-center gap-4 py-2">
+        {[1, 2, 3, 4, 5].map((star) => (
+          <button
+            key={star}
+            onClick={() => {
+              setRating(star);
+              setSelectedTags([]);
+            }}
+            className="transition-all duration-200 active:scale-90"
+          >
+            <Star
+              className={`h-8 w-8 transition-colors ${
+                star <= rating 
+                  ? "fill-black text-black" 
+                  : "text-gray-200"
+              }`}
+            />
+          </button>
+        ))}
+      </div>
+
+      {/* Dynamic Performance Chips */}
+      {rating > 0 && (
+        <div className="space-y-3">
+          <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">
+            What stood out to you?
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {(rating >= 4
+              ? [
+                  "Premium Quality",
+                  "Fast Checkout",
+                  "Store Staff",
+                  "Great Selection",
+                  "Easy Returns",
+                  "Elite Design",
+                ]
+              : [
+                  "Stock Issues",
+                  "Long Queues",
+                  "Sizing Help",
+                  "Quality Concern",
+                  "App Experience",
+                  "Pricing",
+                ]
+            ).map((item) => (
+              <button
+                key={item}
+                onClick={() =>
+                  setSelectedTags((prev) =>
+                    prev.includes(item)
+                      ? prev.filter((tag) => tag !== item)
+                      : [...prev, item]
+                  )
+                }
+                className={`text-[10px] px-4 py-2 rounded-full border-2 font-bold uppercase tracking-tighter transition-all ${
+                  selectedTags.includes(item)
+                    ? "bg-black text-white border-black"
+                    : "border-gray-50 bg-gray-50 text-gray-400 hover:border-gray-100"
+                }`}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Optional Comment */}
+      <div className="space-y-2">
+        <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">
+          Detailed Report (Optional)
+        </label>
+        <textarea
+          rows={3}
+          placeholder="Tell us about your PUMA experience..."
+          className="w-full p-4 text-xs font-medium bg-gray-50 border border-gray-100 rounded-2xl focus:bg-white focus:border-[#BA2C2F] outline-none resize-none transition-all placeholder:text-gray-300"
+          value={feedbackText}
+          onChange={(e) => setFeedbackText(e.target.value)}
+        />
+      </div>
+
+      {/* Submit Button */}
+      <div className="pt-2">
+        <button
+          className={`w-full h-14 text-[11px] font-bold uppercase italic tracking-[0.2em] rounded-xl transition-all shadow-xl active:scale-[0.98] ${
+            rating 
+              ? "bg-black text-white shadow-black/20 hover:bg-[#BA2C2F]" 
+              : "bg-gray-100 text-gray-300 cursor-not-allowed"
+          }`}
+          onClick={handleFeedbackSubmit}
+          disabled={!rating}
+        >
+          Submit Performance Report
+        </button>
+      </div>
+
+      <p className="text-[9px] font-bold text-center text-gray-300 uppercase tracking-tighter">
+        Your insights help PUMA push the limits of excellence.
+      </p>
+    </div>
+  )}
+</div>
           
 {/* Promo Banner Carousel */}
 <div className="bg-white rounded-3xl overflow-hidden mx-4 mt-6 relative shadow-xl border border-gray-100">
@@ -1333,182 +1465,6 @@ Powered by RDEP
   </div>
 </div>
           
-      {/* Feedback Section */}
-<div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
-
-  {feedbackSubmitted ? (
-
-    <div className="text-center py-6 bg-green-50 rounded-xl border border-green-100">
-
-      <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-        <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path>
-        </svg>
-      </div>
-
-      <div className="text-sm font-semibold text-gray-900 mb-1">
-        Thanks for your feedback!
-      </div>
-
-      <div className="text-xs text-gray-500">
-        Your input helps us improve every Domino's experience.
-      </div>
-
-    </div>
-
-  ) : (
-
-    <div className="space-y-4">
-
-      {/* Header */}
-      <div className="flex items-center justify-between">
-
-        <div className="flex items-center">
-
-          <div className="bg-[#E31837] p-2 rounded-lg mr-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              className="w-4 h-4 text-white"
-              fill="currentColor"
-            >
-              <path d="M11.5 2C7 2 3.5 5.3 3.5 9.5c0 2.4 1.2 4.4 3.1 5.7L6 22l5.1-2.6c.5.1 1 .1 1.5.1 4.5 0 8-3.3 8-7.5S16 2 11.5 2z"/>
-            </svg>
-          </div>
-
-          <h3 className="text-base font-semibold text-gray-900">
-            Rate Your Pizza Experience
-          </h3>
-
-        </div>
-
-      </div>
-
-
-      {/* Pizza Rating */}
-      <div className="flex justify-center gap-3 py-1">
-
-        {[1,2,3,4,5].map((pizza) => (
-
-          <button
-            key={pizza}
-            onClick={() => {
-              setRating(pizza)
-              setSelectedTags([])
-            }}
-            className="transition-transform active:scale-90"
-          >
-
-            <span
-              className={`text-3xl ${
-                pizza <= rating ? "opacity-100" : "opacity-30"
-              }`}
-            >
-              🍕
-            </span>
-
-          </button>
-
-        ))}
-
-      </div>
-
-
-      {/* Dynamic Feedback Chips */}
-      {rating > 0 && (
-
-        <div className="space-y-2">
-
-          <div className="text-[11px] font-semibold text-gray-500 uppercase tracking-wide">
-            Tell us more about your order
-          </div>
-
-          <div className="flex flex-wrap gap-2">
-
-            {(rating >= 4
-              ? [
-                  "Great taste",
-                  "Hot & fresh pizza",
-                  "Fast delivery",
-                  "Good value",
-                  "Well packaged",
-                  "Accurate order",
-                ]
-              : [
-                  "Pizza was cold",
-                  "Long delivery time",
-                  "Wrong order",
-                  "Poor taste",
-                  "Packaging issue",
-                  "Not good value",
-                ]
-            ).map((item) => (
-
-              <button
-                key={item}
-                onClick={() =>
-                  setSelectedTags((prev) =>
-                    prev.includes(item)
-                      ? prev.filter((tag) => tag !== item)
-                      : [...prev, item]
-                  )
-                }
-                className={`text-[11px] px-3 py-1.5 rounded-full border transition ${
-                  selectedTags.includes(item)
-                    ? "bg-[#E31837] text-white border-[#E31837]"
-                    : "border-gray-200 bg-gray-50"
-                }`}
-              >
-                {item}
-              </button>
-
-            ))}
-
-          </div>
-
-        </div>
-
-      )}
-
-
-      {/* Optional Comment */}
-      <div className="space-y-1">
-
-        <label className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide">
-          Additional Feedback (Optional)
-        </label>
-
-        <textarea
-          rows={3}
-          placeholder="Tell us about your Domino's order"
-          className="w-full p-3 text-xs border border-gray-200 rounded-xl focus:ring-1 focus:ring-[#E31837] focus:border-[#E31837] outline-none resize-none"
-          value={feedbackText}
-          onChange={(e) => setFeedbackText(e.target.value)}
-        />
-
-      </div>
-
-
-      {/* Submit Button */}
-      <button
-        className="w-full bg-[#006491] text-white h-10 text-xs font-semibold rounded-xl transition active:scale-[0.98]"
-        onClick={handleFeedbackSubmit}
-        disabled={!rating}
-      >
-        Submit Feedback
-      </button>
-
-
-      <p className="text-[10px] text-center text-gray-400">
-        Your feedback helps Domino's improve every order.
-      </p>
-
-    </div>
-
-  )}
-
-</div>
-
 {/* Just For You - Coupon Section */}
 <div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
 
