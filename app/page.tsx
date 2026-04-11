@@ -802,68 +802,76 @@ Powered by RDEP
       >
         <div className="flex flex-col w-full gap-3 pb-4 px-3">
 
-          {/* Top Section */}
-<div className="bg-white rounded-2xl shadow-md border border-gray-200 mt-4 mx-3 overflow-hidden">
-  {/* Header */}
-  <div className="bg-[#006491] px-5 pt-5 pb-6 text-white">
-    <div className="flex items-start justify-between">
-      {/* Logo */}
+          {/* PUMA Premium Top Section */}
+<div className="bg-white rounded-3xl shadow-xl border border-gray-100 mt-6 mx-4 overflow-hidden">
+  {/* Header: Clean White Layout */}
+  <div className="px-6 pt-8 pb-4 bg-white">
+    <div className="flex items-center justify-between">
+      {/* Logo: PUMA Branding */}
       <img
-        src="https://upload.wikimedia.org/wikipedia/commons/7/74/Dominos_pizza_logo.svg"
-        alt="Domino's Pizza"
-        className="h-20 w-auto"
+        src="/images/design-mode/puma-logo.png"
+        alt="PUMA"
+        className="h-10 w-auto object-contain" 
       />
-      {/* QR */}
-      <div className="bg-white rounded-xl p-2 shadow-sm">
+      
+      {/* Premium Minimalist QR */}
+      <div className="bg-gray-50 rounded-2xl p-2.5 border border-gray-100">
         <Image
           src="/images/design-mode/800px-QR_code_for_mobile_English_Wikipedia.svg.png"
-          alt="QR Code"
-          width={52}
-          height={52}
+          alt="Scan for Warranty"
+          width={44}
+          height={44}
+          className="grayscale"
         />
       </div>
     </div>
-    {/* Greeting */}
-    <div className="mt-3">
-      <div className="text-lg font-semibold">
-        Thanks {customerName}
+
+    {/* Greeting: Personalized & Bold */}
+    <div className="mt-8">
+      <div className="text-2xl font-black italic uppercase tracking-tight text-black">
+        READY, {customerName}?
       </div>
-      <div className="text-sm opacity-90">
-        Your Domino's order is confirmed
+      <div className="text-xs uppercase tracking-widest text-gray-500 font-medium mt-1">
+        Your PUMA India Gear is Secured
       </div>
     </div>
-    {/* Amount */}
-    <div className="mt-4 bg-[#E31837] rounded-xl p-4 flex justify-between items-center">
+
+    {/* Amount: Sleek Integration */}
+    <div className="mt-8 flex justify-between items-end border-b-2 border-black pb-4">
       <div>
-        <div className="text-xs opacity-80">
-          Amount Paid
+        <div className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400">
+          Total Investment
         </div>
-        <div className="text-3xl font-semibold">
-          ₹{currentReceipt.total.toFixed(2)}
+        <div className="text-4xl font-black text-black tabular-nums">
+          ₹{currentReceipt.total.toLocaleString('en-IN')}
         </div>
       </div>
-      <User2 className="h-7 w-7 text-white/80" />
+      <div className="bg-[#BA2C2F] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-tighter mb-1">
+        Paid
+      </div>
     </div>
   </div>
-  {/* Receipt Metadata */}
-  <div className="p-4 bg-white">
-    <div className="bg-gray-50 rounded-xl border border-gray-200 p-3 space-y-2">
+
+  {/* Receipt Metadata: Industrial Grid */}
+  <div className="px-6 py-5 bg-gray-50/50">
+    <div className="grid grid-cols-2 gap-4">
       {/* Receipt ID */}
-      <div className="flex justify-between items-center">
-        <span className="text-xs text-gray-500">
-          Order ID:
+      <div className="flex flex-col">
+        <span className="text-[10px] uppercase font-bold text-gray-400 tracking-wider">
+          Transaction ID
         </span>
-        <span className="text-sm font-semibold tracking-wide text-right">
-          {currentReceipt.id}
+        <span className="text-sm font-mono font-bold text-black mt-1">
+          #{currentReceipt.id.slice(-8)}
         </span>
       </div>
+      
       {/* Date & Time */}
-      <div className="flex justify-between items-center">
-        <span className="text-xs text-gray-500">
-          Order Time:
+      <div className="flex flex-col text-right">
+        <span className="text-[10px] uppercase font-bold text-gray-400 tracking-wider">
+          Purchase Date
         </span>
-        <span className="text-sm font-semibold text-right">
-          {currentReceipt.date} {currentReceipt.time}
+        <span className="text-sm font-bold text-black mt-1">
+          {currentReceipt.date}
         </span>
       </div>
     </div>
