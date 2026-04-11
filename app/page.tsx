@@ -1898,45 +1898,55 @@ Powered by RDEP
           </div>
         )}
 
-        {/* Transaction History Modal */}
+  {/* Transaction History Modal */}
 {showTransactionHistory && (
-  <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
+  <div className="fixed inset-0 z-[9999] flex items-center justify-center">
 
     {/* Backdrop */}
     <div
-      className="absolute inset-0 bg-black/60 backdrop-blur-md"
+      className="absolute inset-0 bg-black/40 backdrop-blur-sm"
       onClick={() => setShowTransactionHistory(false)}
     />
 
     {/* Modal */}
-    <div className="relative bg-white rounded-3xl w-full max-w-sm shadow-2xl border border-gray-100 overflow-hidden">
+    <div className="relative bg-white rounded-2xl w-full max-w-sm mx-4 shadow-2xl border border-gray-200 font-poppins overflow-hidden">
 
       {/* Header */}
-      <div className="flex justify-between items-center p-5 bg-black">
+      <div className="flex justify-between items-center p-4 border-b border-gray-100">
 
         <div className="flex items-center">
-          <div className="bg-[#BA2C2F] p-2 rounded-lg mr-3 shadow-lg shadow-red-900/20">
+
+          <div className="bg-[#BA2C2F] p-2 rounded-lg mr-3">
             <History className="h-4 w-4 text-white" />
           </div>
-          <h3 className="text-sm font-bold uppercase tracking-widest text-white">
-            History
+
+          <h3 className="text-sm font-semibold text-gray-900">
+            Order History
           </h3>
+
         </div>
 
         <button
-          className="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+          className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100"
           onClick={() => setShowTransactionHistory(false)}
         >
-          <X className="h-4 w-4 text-white" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            className="h-4 w-4 text-gray-500"
+          >
+            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2"/>
+          </svg>
         </button>
 
       </div>
 
 
       {/* Transaction List */}
-      <div className="max-h-96 overflow-y-auto p-4 space-y-3 bg-gray-50/50">
+      <div className="max-h-80 overflow-y-auto p-4 space-y-3">
 
         {transactionHistory.map((transaction) => (
+
           <button
             key={transaction.id}
             onClick={() => {
@@ -1944,36 +1954,33 @@ Powered by RDEP
               setShowTransactionHistory(false)
               window.scrollTo({ top: 0, behavior: "smooth" })
             }}
-            className="w-full flex items-center p-4 bg-white border border-gray-100 rounded-2xl hover:border-black hover:shadow-md transition-all active:scale-[0.98]"
+            className="w-full flex items-center p-3 bg-gray-50 border border-gray-200 rounded-xl hover:border-[#BA2C2F] transition"
           >
 
-            <div className="bg-gray-50 border border-gray-100 p-2.5 rounded-xl mr-4">
+            <div className="bg-white border border-gray-200 p-2 rounded-lg mr-3">
               <FileText className="h-4 w-4 text-black" />
             </div>
 
             <div className="flex-grow text-left">
-              <div className="text-[11px] font-bold uppercase tracking-tight text-black">
+
+              <div className="text-sm font-semibold text-gray-900">
                 PUMA Store
               </div>
-              <div className="text-[10px] font-medium text-gray-400 uppercase tracking-tighter">
+
+              <div className="text-[11px] text-gray-500">
                 {transaction.date}
               </div>
+
             </div>
 
-            <div className="text-xs font-bold text-black tabular-nums">
+            <div className="text-sm font-semibold text-black">
               ₹{transaction.amount.toFixed(2)}
             </div>
 
           </button>
+
         ))}
 
-      </div>
-
-      {/* Footer Branding */}
-      <div className="p-4 bg-white border-t border-gray-100 text-center">
-        <p className="text-[9px] font-bold text-gray-300 uppercase tracking-widest">
-          Showing last {transactionHistory.length} transactions
-        </p>
       </div>
 
     </div>
