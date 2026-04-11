@@ -1026,7 +1026,196 @@ Powered by RDEP
   </div>
 </div>
           
-      {/* PUMA AdvoCAT Loyalty Section */}
+          
+{/* Promo Banner Carousel */}
+<div className="bg-white rounded-3xl overflow-hidden mx-4 mt-6 relative shadow-xl border border-gray-100">
+  <Carousel
+    className="w-full"
+    setApi={setPromoApi}
+    opts={{
+      loop: true,
+    }}
+  >
+    <CarouselContent>
+      {/* Banner 1: RCB Launch */}
+      <CarouselItem>
+        <div className="relative w-full aspect-[1893/667]">
+          <a
+            href="https://in.puma.com/in/en/rcb-launch"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full h-full block"
+          >
+            <Image
+              src="/images/design-mode/puma-banner-1.png"
+              alt="PUMA RCB Launch"
+              fill
+              className="object-cover"
+              priority
+            />
+            {/* Overlay for CTA visibility if needed */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" />
+          </a>
+
+          {/* Sharp PUMA CTA */}
+          <div className="absolute bottom-6 left-6">
+            <a
+              href="https://in.puma.com/in/en/rcb-launch"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="bg-white text-black text-[10px] font-bold uppercase italic tracking-widest px-6 py-2.5 rounded-sm shadow-lg hover:bg-[#BA2C2F] hover:text-white transition-colors">
+                Shop Collection
+              </button>
+            </a>
+          </div>
+        </div>
+      </CarouselItem>
+
+      {/* Banner 2: Pokémon Collaboration */}
+      <CarouselItem>
+        <div className="relative w-full aspect-[1893/667]">
+          <a
+            href="https://in.puma.com/in/en/collaborations/collaborations-select/collaborations-select-pokemon"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full h-full block"
+          >
+            <Image
+              src="/images/design-mode/puma-banner-2.png"
+              alt="PUMA x Pokémon"
+              fill
+              className="object-cover"
+            />
+          </a>
+
+          {/* Sharp PUMA CTA */}
+          <div className="absolute bottom-6 left-6">
+            <a
+              href="https://in.puma.com/in/en/collaborations/collaborations-select/collaborations-select-pokemon"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="bg-white text-black text-[10px] font-bold uppercase italic tracking-widest px-6 py-2.5 rounded-sm shadow-lg hover:bg-[#BA2C2F] hover:text-white transition-colors">
+                Explore Collab
+              </button>
+            </a>
+          </div>
+        </div>
+      </CarouselItem>
+    </CarouselContent>
+
+    {/* Pagination Dots: PUMA Red Style */}
+    <div className="absolute bottom-4 right-6 flex gap-1.5 z-10">
+      {[0, 1].map((index) => (
+        <button
+          key={index}
+          onClick={() => promoApi?.scrollTo(index)}
+          className={`h-1 rounded-full transition-all duration-300 ${
+            currentSlide === index
+              ? "w-8 bg-[#BA2C2F]"
+              : "w-2 bg-white/50 hover:bg-white"
+          }`}
+        />
+      ))}
+    </div>
+  </Carousel>
+</div>
+          
+        {/* Join PUMA AdvoCAT Section */}
+<div className="bg-white rounded-3xl shadow-xl border border-gray-100 mx-4 mt-6 p-6">
+  
+  {profileUpdateSuccess ? (
+    <div className="text-center py-6 bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+      <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-black/20">
+        <Check className="w-8 h-8 text-[#BA2C2F]" />
+      </div>
+      
+      <div className="text-sm font-bold uppercase tracking-tight text-black mb-1">
+        AdvoCAT Membership Active
+      </div>
+      
+      <div className="text-[11px] text-gray-500 font-medium uppercase tracking-widest px-6">
+        Welcome to the team. Your performance perks are now ready for use.
+      </div>
+    </div>
+  ) : (
+    <>
+      {/* Header */}
+      <div className="flex items-center mb-6">
+        <div className="bg-black p-2.5 rounded-xl mr-4 shadow-lg shadow-black/10">
+          <User2 className="h-5 w-5 text-white" />
+        </div>
+        <div>
+          <div className="text-sm font-bold uppercase tracking-tight text-black">
+            Join the AdvoCAT Team
+          </div>
+          <div className="text-[10px] font-medium text-gray-400 uppercase tracking-widest leading-relaxed">
+            Unlock exclusive drops, performance rewards, and faster checkout
+          </div>
+        </div>
+      </div>
+
+      {/* Modern High-Contrast Form */}
+      <div className="space-y-4">
+        <div className="space-y-1.5">
+          <label className="text-[9px] font-bold text-gray-400 uppercase tracking-[0.1em] ml-1">
+            Full Name
+          </label>
+          <input
+            type="text"
+            placeholder="Athlete Name"
+            value={profile.name}
+            onChange={(e) => setProfile((prev) => ({ ...prev, name: e.target.value }))}
+            className="w-full h-12 px-4 text-xs font-semibold bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:border-[#BA2C2F] focus:bg-white transition-all placeholder:text-gray-300 uppercase italic"
+          />
+        </div>
+
+        <div className="grid grid-cols-1 gap-4">
+          <div className="space-y-1.5">
+            <label className="text-[9px] font-bold text-gray-400 uppercase tracking-[0.1em] ml-1">
+              Email Address
+            </label>
+            <input
+              type="email"
+              placeholder="name@email.com"
+              value={profile.email}
+              onChange={(e) => setProfile((prev) => ({ ...prev, email: e.target.value }))}
+              className="w-full h-12 px-4 text-xs font-semibold bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:border-[#BA2C2F] focus:bg-white transition-all placeholder:text-gray-300"
+            />
+          </div>
+
+          <div className="space-y-1.5">
+            <label className="text-[9px] font-bold text-gray-400 uppercase tracking-[0.1em] ml-1">
+              Mobile Number
+            </label>
+            <input
+              type="tel"
+              placeholder="+91"
+              value={profile.mobile}
+              onChange={(e) => setProfile((prev) => ({ ...prev, mobile: e.target.value }))}
+              className="w-full h-12 px-4 text-xs font-semibold bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:border-[#BA2C2F] focus:bg-white transition-all placeholder:text-gray-300"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* CTA: Brand Heavy */}
+      <button
+        className="w-full mt-8 bg-black text-white h-14 text-[11px] font-bold uppercase italic tracking-[0.2em] rounded-xl shadow-xl hover:bg-[#BA2C2F] transition-all active:scale-[0.98]"
+        onClick={handleProfileUpdate}
+      >
+        Activate Membership
+      </button>
+
+      {/* Compliance / Helper text */}
+      <div className="text-[9px] font-medium text-gray-400 text-center mt-4 px-4 leading-relaxed uppercase tracking-tighter">
+        By joining, you agree to PUMA's <span className="underline text-black">Terms of Service</span> and to receive personalized performance updates.
+      </div>
+    </>
+  )}
+</div>
+          {/* PUMA AdvoCAT Loyalty Section */}
 <div className="bg-white rounded-3xl shadow-xl border border-gray-100 mt-6 mx-4 p-6">
   
   {/* Header: Branding shifted to AdvoCAT */}
@@ -1142,258 +1331,6 @@ Powered by RDEP
       <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
     </a>
   </div>
-</div>
-          
-{/* Promo Banner Carousel */}
-<div className="bg-white rounded-2xl border border-gray-200 shadow-md overflow-hidden mx-3 mt-4 relative font-poppins">
-  <Carousel
-    className="w-full"
-    setApi={setPromoApi}
-    opts={{
-      loop: true,
-    }}
-  >
-    <CarouselContent>
-
-      {/* Banner 1 */}
-      <CarouselItem>
-        <div className="relative w-full aspect-[2/1] bg-[#F4F8FB] flex items-center justify-center">
-
-          <a
-            href="https://www.dominos.co.in/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full h-full relative"
-          >
-            <Image
-              src="https://api.dominos.co.in/prod-olo-api/images/Home_Paytm_20210519.jpg"
-              alt="Domino's Paytm Offer"
-              fill
-              className="object-contain"
-              priority
-            />
-          </a>
-
-          {/* CTA */}
-          <a
-            href="https://www.dominos.co.in/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute bottom-4 right-4"
-          >
-            <button className="bg-[#E31837] text-white text-xs font-medium px-4 py-2 rounded-lg shadow-sm">
-              Order Now
-            </button>
-          </a>
-
-        </div>
-      </CarouselItem>
-
-
-      {/* Banner 2 */}
-      <CarouselItem>
-        <div className="relative w-full aspect-[2/1] bg-[#F4F8FB] flex items-center justify-center">
-
-          <a
-            href="https://www.dominos.co.in/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full h-full relative"
-          >
-            <Image
-              src="https://api.dominos.co.in/prod-olo-api/images/amazon_home_20210412.jpg"
-              alt="Domino's Amazon Offer"
-              fill
-              className="object-contain"
-            />
-          </a>
-
-          {/* CTA */}
-          <a
-            href="https://www.dominos.co.in/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute bottom-4 right-4"
-          >
-            <button className="bg-[#E31837] text-white text-xs font-medium px-4 py-2 rounded-lg shadow-sm">
-              Order Now
-            </button>
-          </a>
-
-        </div>
-      </CarouselItem>
-
-
-      {/* Banner 3 */}
-      <CarouselItem>
-        <div className="relative w-full aspect-[2/1] bg-[#F4F8FB] flex items-center justify-center">
-
-          <a
-            href="https://www.dominos.co.in/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full h-full relative"
-          >
-            <Image
-              src="https://api.dominos.co.in/prod-olo-api/images/Home_Freecharge_20210405.jpg"
-              alt="Domino's Freecharge Offer"
-              fill
-              className="object-contain"
-            />
-          </a>
-
-          {/* CTA */}
-          <a
-            href="https://www.dominos.co.in/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute bottom-4 right-4"
-          >
-            <button className="bg-[#E31837] text-white text-xs font-medium px-4 py-2 rounded-lg shadow-sm">
-              Order Now
-            </button>
-          </a>
-
-        </div>
-      </CarouselItem>
-
-    </CarouselContent>
-
-
-    {/* Pagination Dots */}
-    <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 z-10">
-      {[0, 1, 2].map((index) => (
-        <button
-          key={index}
-          onClick={() => promoApi?.scrollTo(index)}
-          className={`h-1.5 rounded-full transition-all duration-300 ${
-            currentSlide === index
-              ? "w-5 bg-[#E31837]"
-              : "w-1.5 bg-white/70"
-          }`}
-        />
-      ))}
-    </div>
-
-  </Carousel>
-</div>
-
-          {/* Join Domino's Rewards Section */}
-<div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
-
-  {profileUpdateSuccess ? (
-
-    <div className="text-center py-4 bg-green-50 rounded-xl border border-green-100">
-
-      <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-        <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path>
-        </svg>
-      </div>
-
-      <div className="text-sm font-semibold text-gray-900 mb-1">
-        Welcome to Domino's Rewards!
-      </div>
-
-      <div className="text-xs text-green-700 font-medium">
-        Your profile has been saved and rewards are now active.
-      </div>
-
-    </div>
-
-  ) : (
-
-    <>
-      {/* Header */}
-      <div className="flex items-center justify-between mb-3">
-
-        <div className="flex items-center">
-
-          <div className="bg-[#E31837] p-2 rounded-lg mr-3">
-            <User2 className="h-4 w-4 text-white" />
-          </div>
-
-          <div>
-            <div className="text-sm font-semibold text-gray-900">
-              Join Domino's Rewards
-            </div>
-            <div className="text-xs text-gray-500">
-              Save your profile to unlock offers and faster checkout
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-
-      {/* Form */}
-      <div className="space-y-3">
-
-        <div className="space-y-1">
-          <label className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide">
-            Full Name
-          </label>
-
-          <input
-            type="text"
-            placeholder="Your Name"
-            value={profile.name}
-            onChange={(e) => setProfile((prev) => ({ ...prev, name: e.target.value }))}
-            className="w-full h-10 px-3 text-xs border border-gray-200 rounded-lg focus:outline-none focus:border-[#E31837]"
-          />
-        </div>
-
-
-        <div className="space-y-1">
-          <label className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide">
-            Email Address
-          </label>
-
-          <input
-            type="email"
-            placeholder="name@example.com"
-            value={profile.email}
-            onChange={(e) => setProfile((prev) => ({ ...prev, email: e.target.value }))}
-            className="w-full h-10 px-3 text-xs border border-gray-200 rounded-lg focus:outline-none focus:border-[#E31837]"
-          />
-        </div>
-
-
-        <div className="space-y-1">
-          <label className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide">
-            Mobile Number
-          </label>
-
-          <input
-            type="tel"
-            placeholder="+91 ..."
-            value={profile.mobile}
-            onChange={(e) => setProfile((prev) => ({ ...prev, mobile: e.target.value }))}
-            className="w-full h-10 px-3 text-xs border border-gray-200 rounded-lg focus:outline-none focus:border-[#E31837]"
-          />
-        </div>
-
-      </div>
-
-
-      {/* CTA */}
-      <button
-        className="w-full mt-4 bg-[#006491] text-white h-11 text-xs font-semibold rounded-xl shadow-md transition active:scale-[0.98]"
-        onClick={handleProfileUpdate}
-      >
-        Save Profile & Activate Rewards
-      </button>
-
-
-      {/* Helper text */}
-      <div className="text-[10px] text-gray-400 text-center mt-2">
-        By joining, you agree to receive Domino's offers and order updates.
-      </div>
-
-    </>
-  )}
-
 </div>
           
       {/* Feedback Section */}
