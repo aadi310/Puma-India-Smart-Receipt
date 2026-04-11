@@ -667,7 +667,7 @@ body {
     </div>
 
     <div class="bill-info">
-        <div>Order ID: <span class="bill-id">${currentReceipt.orderId}</span></div>
+        <div>Order ID: <span class="bill-id">#7891XQ12</span></div>
         <div>Date: ${currentReceipt.date}</div>
         <div>Store Lead: ${currentReceipt.associate}</div>
     </div>
