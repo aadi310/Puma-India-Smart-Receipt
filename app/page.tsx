@@ -13,6 +13,7 @@ import { Textarea } from "@/components/ui/textarea"
 import {
   ChevronRight,
   Trophy,
+  Zap,
   CreditCard,
   Download,
   ExternalLink,
