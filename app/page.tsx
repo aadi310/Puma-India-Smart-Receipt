@@ -30,6 +30,7 @@ import {
   MapPin,
   ShoppingBagIcon,
   Utensils,
+  Package,
   Receipt as ReceiptIcon,
 } from "lucide-react"
 
@@ -347,11 +348,11 @@ const [expandedItemFeedback, setExpandedItemFeedback] = useState([])
     {
       id: "current",
       date: "05-03-2026",
-      branch: "Domino's",
-      amount: currentReceiptId === "current" ? receipts.current.subtotal + receipts.current.tax : 657.00,
+      branch: "PUMA",
+      amount: currentReceiptId === "current" ? receipts.current.subtotal + receipts.current.tax : 14177.00,
     },
-    { id: "hist1", date: "20-01-2026", branch: "Domino's", amount: 778.00 },
-    { id: "hist2", date: "15-12-2025", branch: "Domino's", amount: 827.00 },
+    { id: "hist1", date: "20-01-2026", branch: "PUMA", amount: 13572.00 },
+    { id: "hist2", date: "15-12-2025", branch: "PUMA", amount: 14117.00 },
   ]
 
   const toggleProductExpansion = (productId: number) => {
@@ -856,235 +857,171 @@ Powered by RDEP
   </div>
 </div>
           
-          {/* Purchase Details */}
-<div className="bg-white rounded-2xl shadow-md border border-gray-200 mt-4 mx-3 p-4">
+         {/* Purchase Details Section */}
+<div className="bg-white rounded-3xl shadow-xl border border-gray-100 mt-6 mx-4 p-6">
 
-  {/* Header */}
-  <div className="flex items-center justify-between mb-4">
-    <h3 className="text-lg font-semibold flex items-center text-[#006491]">
-      <Utensils className="mr-2 h-5 w-5" />
-      Your Order
+  {/* Header: Clean & Modern */}
+  <div className="flex items-center justify-between mb-6">
+    <h3 className="text-sm font-black uppercase tracking-[0.2em] flex items-center text-black">
+      <Package className="mr-2 h-4 w-4 text-[#BA2C2F]" />
+      Purchase Summary
     </h3>
-
-    <span className="text-xs font-medium border border-[#006491] text-[#006491] px-2 py-1 rounded-full">
-      {currentReceipt.items.length} items
+    <span className="text-[10px] font-bold bg-black text-white px-3 py-1 rounded-full uppercase">
+      {currentReceipt.items.length} Units
     </span>
   </div>
 
-
-  {/* Items */}
-  <div className="space-y-3">
-
+  {/* Items List */}
+  <div className="space-y-4">
     {currentReceipt.items.map((product) => (
-
       <div
         key={product.id}
-        className="bg-[#F4F8FB] rounded-xl p-3 border border-[#DDEAF2]"
+        className="group border-l-4 border-[#BA2C2F] bg-gray-50/50 rounded-r-2xl p-4 transition-all"
       >
-
         {/* Item Header */}
         <div
-          className="flex items-center justify-between cursor-pointer"
+          className="flex items-start justify-between cursor-pointer"
           onClick={() => toggleProductExpansion(product.id)}
         >
-
-          <div className="flex items-center flex-1">
-
-            <ChevronRight
-              className={`h-4 w-4 mr-2 text-[#006491] transition-transform duration-200 ${
-                expandedProducts.includes(product.id) ? "rotate-90" : ""
-              }`}
-            />
-
+          <div className="flex items-start flex-1">
+            <div className="mt-1 mr-3">
+              <ChevronRight
+                className={`h-4 w-4 text-black transition-transform duration-300 ${
+                  expandedProducts.includes(product.id) ? "rotate-90" : ""
+                }`}
+              />
+            </div>
             <div>
-              <div className="font-medium text-sm text-gray-900">
+              <div className="font-black text-sm uppercase italic tracking-tight text-black">
                 {product.name}
               </div>
-
-              <div className="text-xs text-gray-500">
-                {product.category}
+              <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-0.5">
+                {product.category} • {product.color}
               </div>
             </div>
-
           </div>
-
 
           <div className="text-right">
-
-            <div className="text-xs text-gray-500">
-              Qty {product.quantity}
+            <div className="text-[10px] font-bold text-gray-400 uppercase">
+              QTY {product.quantity}
             </div>
-
-            <div className="font-semibold text-sm text-[#006491]">
-              ₹{(product.price * product.quantity).toFixed(2)}
+            <div className="font-black text-sm text-black mt-1">
+              ₹{product.price.toLocaleString('en-IN')}
             </div>
-
           </div>
-
         </div>
 
-
-        {/* Expanded Product Info */}
+        {/* Expanded Product Info: Technical Specs */}
         {expandedProducts.includes(product.id) && (
-
-          <div className="mt-3 pt-3 border-t border-[#DDEAF2] text-xs text-gray-600 grid grid-cols-2 gap-y-1">
-
-            <div>Item Code: {product.itemCode}</div>
-            <div>Size: {product.size}</div>
-            <div>Base: ₹{product.baseAmount?.toFixed(2)}</div>
-            <div>Tax: ₹{product.tax?.toFixed(2)}</div>
-
+          <div className="mt-4 pt-4 border-t border-gray-200/60 grid grid-cols-2 gap-y-3">
+            <div className="flex flex-col">
+              <span className="text-[9px] font-bold text-gray-400 uppercase tracking-tighter">Article Number</span>
+              <span className="text-[11px] font-mono font-bold text-black uppercase">{product.itemCode}</span>
+            </div>
+            <div className="flex flex-col text-right">
+              <span className="text-[9px] font-bold text-gray-400 uppercase tracking-tighter">Selected Size</span>
+              <span className="text-[11px] font-bold text-black uppercase">{product.size}</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[9px] font-bold text-gray-400 uppercase tracking-tighter">Colorway</span>
+              <span className="text-[11px] font-bold text-black">{product.color}</span>
+            </div>
+            <div className="flex flex-col text-right">
+              <span className="text-[9px] font-bold text-gray-400 uppercase tracking-tighter">Tax (GST)</span>
+              <span className="text-[11px] font-bold text-black">₹{product.tax.toFixed(2)}</span>
+            </div>
           </div>
-
         )}
 
-
-        {/* Item Feedback Toggle */}
-        <div className="mt-3">
-
+        {/* Item Feedback Toggle: Athletic Branding */}
+        <div className="mt-4">
           <button
             onClick={() => toggleItemFeedback(product.id)}
-            className="text-xs text-[#E31837] font-medium"
+            className="flex items-center text-[10px] font-black uppercase tracking-widest text-[#BA2C2F] hover:opacity-80 transition-opacity"
           >
-            {expandedItemFeedback.includes(product.id)
-              ? "Hide item feedback"
-              : "Rate this item"}
+            {expandedItemFeedback.includes(product.id) ? "Close Review" : "Rate Gear Performance"}
+            <Star className={`ml-1.5 h-3 w-3 ${expandedItemFeedback.includes(product.id) ? "fill-[#BA2C2F]" : ""}`} />
           </button>
-
         </div>
-
 
         {/* Item Feedback Panel */}
         {expandedItemFeedback.includes(product.id) && (
-
-          <div className="mt-3 bg-white border border-gray-200 rounded-xl p-3">
-
-            {/* Rating */}
-            <div className="flex justify-center gap-2 mb-3">
-
-              {[1,2,3,4,5].map((star) => (
-
-                <button
-                  key={star}
-                  onClick={() => setItemRating(product.id, star)}
-                >
-
+          <div className="mt-4 bg-white rounded-2xl p-4 shadow-inner border border-gray-100">
+            <div className="flex justify-center gap-3 mb-4">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <button key={star} onClick={() => setItemRating(product.id, star)}>
                   <Star
-                    className={`h-5 w-5 ${
+                    className={`h-6 w-6 transition-all ${
                       star <= (itemFeedback[product.id]?.rating || 0)
-                        ? "fill-[#E31837] text-[#E31837]"
-                        : "text-gray-300"
+                        ? "fill-black text-black scale-110"
+                        : "text-gray-200 hover:text-gray-300"
                     }`}
                   />
-
                 </button>
-
               ))}
-
             </div>
-
-
-            {/* Tags */}
             <div className="flex flex-wrap gap-2 justify-center">
-
-              {["Taste","Freshness","Portion","Temperature"].map((tag) => {
-
-                const active =
-                  itemFeedback[product.id]?.tags?.includes(tag)
-
+              {["Comfort", "Durability", "Fit", "Style"].map((tag) => {
+                const active = itemFeedback[product.id]?.tags?.includes(tag);
                 return (
-
                   <button
                     key={tag}
                     onClick={() => toggleItemTag(product.id, tag)}
-                    className={`text-[11px] px-2 py-1 rounded-full border ${
+                    className={`text-[9px] font-black uppercase tracking-tighter px-4 py-1.5 rounded-full border-2 transition-all ${
                       active
-                        ? "bg-[#E31837] text-white border-[#E31837]"
-                        : "border-gray-200"
+                        ? "bg-black text-white border-black"
+                        : "border-gray-100 text-gray-400 hover:border-gray-200"
                     }`}
                   >
                     {tag}
                   </button>
-
-                )
-
+                );
               })}
-
             </div>
-
           </div>
-
         )}
-
       </div>
-
     ))}
-
   </div>
 
-
-  {/* Totals */}
-  <div className="mt-5 pt-4 border-t border-gray-200 space-y-2 text-sm">
-
-    <div className="flex justify-between">
-      <span className="text-gray-600">Subtotal</span>
-      <span>₹{currentReceipt.subtotal.toFixed(2)}</span>
+  {/* Totals Section */}
+  <div className="mt-8 pt-6 border-t-2 border-dashed border-gray-100 space-y-3">
+    <div className="flex justify-between text-[11px] font-bold uppercase tracking-widest text-gray-400">
+      <span>Subtotal</span>
+      <span className="text-black font-mono">₹{currentReceipt.subtotal.toLocaleString('en-IN')}</span>
     </div>
-
-    <div className="flex justify-between">
-      <span className="text-gray-600">Tax</span>
-      <span>₹{currentReceipt.tax.toFixed(2)}</span>
+    <div className="flex justify-between text-[11px] font-bold uppercase tracking-widest text-gray-400">
+      <span>Taxes & Duties</span>
+      <span className="text-black font-mono">₹{currentReceipt.tax.toLocaleString('en-IN')}</span>
     </div>
-
-    <div className="flex justify-between text-base font-semibold pt-2 border-t border-gray-200">
-      <span>Total Paid</span>
-      <span className="text-[#006491]">
-        ₹{currentReceipt.total.toFixed(2)}
+    <div className="flex justify-between items-center pt-4 mt-2 border-t border-gray-100">
+      <span className="text-sm font-black uppercase italic tracking-tighter text-black">Total Paid</span>
+      <span className="text-2xl font-black text-black tabular-nums">
+        ₹{currentReceipt.total.toLocaleString('en-IN')}
       </span>
     </div>
-
   </div>
 
-
-  {/* Payment */}
-  <div className="mt-5">
-
-    <div className="bg-gray-50 border border-gray-200 rounded-xl p-3 flex items-center justify-between">
-
+  {/* Payment Method: Minimalist */}
+  <div className="mt-6">
+    <div className="bg-black rounded-2xl p-4 flex items-center justify-between shadow-lg shadow-black/10">
       <div className="flex items-center">
-
-        <div className="w-8 h-8 bg-[#006491] rounded-lg flex items-center justify-center mr-3">
-          <svg
-            className="w-4 h-4 text-white"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-            <line x1="1" y1="10" x2="23" y2="10"></line>
-          </svg>
+        <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center mr-4 border border-white/10">
+          <CreditCard className="w-5 h-5 text-white" />
         </div>
-
         <div>
-          <div className="text-xs font-medium">
-            Card Payment
-          </div>
-
-          <div className="text-xs text-gray-500">
-            **** **** **** 4532
+          <div className="text-[10px] font-black text-white/50 uppercase tracking-[0.2em]">Method</div>
+          <div className="text-xs font-bold text-white tracking-widest uppercase">
+            VISA •••• 4532
           </div>
         </div>
-
       </div>
-
-      <div className="text-sm font-semibold text-[#006491]">
-        ₹{currentReceipt.total.toFixed(2)}
+      <div className="h-8 w-[1px] bg-white/10 mx-2" />
+      <div className="text-right">
+        <div className="text-[10px] font-black text-[#BA2C2F] uppercase">Authorized</div>
       </div>
-
     </div>
-
   </div>
-
 </div>
 
       {/* Rewards Loyalty Section */}
