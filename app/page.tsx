@@ -1584,7 +1584,7 @@ Powered by RDEP
     </a>
   </div>
 
-  <p className="text-[9px] font-bold text-center text-gray-300 uppercase tracking-tighter mt-4">
+  <p className="text-[9px] font-bold text-center text-gray-500 uppercase tracking-tighter mt-4">
     Exclusive drops and collections available online.
   </p>
 </div>
@@ -1690,154 +1690,125 @@ Powered by RDEP
     </button>
 
   </div>
-
-  {/* Footer Helper */}
-  <div className="mt-6 text-center">
-    <p className="text-[9px] font-bold text-gray-300 uppercase tracking-[0.1em]">
-      Reference Order ID: {currentReceipt.orderId}
-    </p>
-  </div>
 </div>
 
       {/* Social Media & Store Details */}
-<div className="bg-white rounded-2xl border border-gray-200 shadow-md mx-3 mt-4 p-4 font-poppins">
+<div className="bg-white rounded-3xl border border-gray-100 shadow-xl mx-4 mt-6 p-6 mb-8">
 
   {/* Header */}
-  <div className="flex items-center mb-4">
-
-    <div className="bg-[#E31837] p-2 rounded-lg mr-3">
+  <div className="flex items-center mb-6">
+    <div className="bg-black p-2.5 rounded-xl mr-4 shadow-lg shadow-black/10">
       <Share2 className="h-4 w-4 text-white" />
     </div>
-
-    <h3 className="text-sm font-semibold text-gray-900">
+    <h3 className="text-sm font-bold uppercase tracking-tight text-black">
       Stay Connected
     </h3>
-
   </div>
 
-
   {/* Social Links */}
-  <div className="flex justify-center space-x-6 mb-4">
-
+  <div className="flex justify-center space-x-8 mb-8">
     {/* Instagram */}
     <button
-      onClick={() => handleSocialLink("https://www.instagram.com/dominos_india")}
-      className="flex flex-col items-center"
+      onClick={() => handleSocialLink("https://www.instagram.com/pumaindia/")}
+      className="flex flex-col items-center group"
     >
-      <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-500 flex items-center justify-center mb-1">
-        <Instagram className="h-4 w-4 text-white" />
+      <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center mb-2 transition-all group-hover:bg-black group-hover:text-white">
+        <Instagram className="h-5 w-5" />
       </div>
-      <span className="text-[11px] font-medium text-gray-700">Instagram</span>
+      <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 group-hover:text-black">Instagram</span>
     </button>
-
 
     {/* Facebook */}
     <button
-      onClick={() => handleSocialLink("https://www.facebook.com/DominosPizzaIndia")}
-      className="flex flex-col items-center"
+      onClick={() => handleSocialLink("https://www.instagram.com/pumaindia/")}
+      className="flex flex-col items-center group"
     >
-      <div className="w-9 h-9 rounded-full bg-[#1877F2] flex items-center justify-center mb-1">
-        <Facebook className="h-4 w-4 text-white" />
+      <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center mb-2 transition-all group-hover:bg-black group-hover:text-white">
+        <Facebook className="h-5 w-5" />
       </div>
-      <span className="text-[11px] font-medium text-gray-700">Facebook</span>
+      <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 group-hover:text-black">Facebook</span>
     </button>
-
 
     {/* Website */}
     <button
-      onClick={() => handleSocialLink("https://www.dominos.co.in")}
-      className="flex flex-col items-center"
+      onClick={() => handleSocialLink("https://in.puma.com/in/en")}
+      className="flex flex-col items-center group"
     >
-      <div className="w-9 h-9 rounded-full bg-[#E31837] flex items-center justify-center mb-1">
-        <ExternalLink className="h-4 w-4 text-white" />
+      <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center mb-2 transition-all group-hover:bg-black group-hover:text-white">
+        <ExternalLink className="h-5 w-5" />
       </div>
-      <span className="text-[11px] font-medium text-gray-700">Website</span>
+      <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 group-hover:text-black">Website</span>
     </button>
-
   </div>
 
-
   {/* Store Location */}
-  <div className="text-xs text-gray-600 text-center mb-3 bg-gray-50 p-3 rounded-xl">
-
+  <div className="text-[11px] text-gray-600 text-center mb-4 bg-gray-50 p-4 rounded-2xl border border-gray-100">
     <button
       onClick={() => setShowStoreLocation(!showStoreLocation)}
-      className="w-full flex items-center justify-center mb-2 hover:text-[#E31837] transition-colors"
+      className="w-full flex items-center justify-center mb-2 hover:text-[#BA2C2F] transition-colors"
     >
-      <MapPin className="h-3 w-3 mr-1 text-[#E31837]" />
-      <span className="font-semibold text-[#006491]">
-        Domino's Brigade Road, Bengaluru {showStoreLocation ? "▲" : "▼"}
+      <MapPin className="h-4 w-4 mr-2 text-[#BA2C2F]" />
+      <span className="font-bold uppercase tracking-tight text-black">
+        PUMA Indiranagar {showStoreLocation ? "▲" : "▼"}
       </span>
     </button>
 
     {showStoreLocation && (
-      <div className="space-y-0.5">
-        <p className="font-semibold text-gray-900">Domino's Pizza</p>
-        <p>Brigade Road</p>
-        <p>Bengaluru, Karnataka 560001</p>
-        <p>India</p>
-
-        <p className="mt-2 text-[10px]">
-          GSTIN: 29ABCDE1234F1Z5
-        </p>
-
-        <p className="mt-1 text-[#006491] font-semibold">
-          Store Manager: {currentReceipt.associate}
-        </p>
+      <div className="mt-3 space-y-1 font-medium border-t border-gray-200 pt-3">
+        <p className="font-bold text-black uppercase">PUMA Store</p>
+        <p>No 777/H, 100 Feet Rd, HAL 2nd Stage</p>
+        <p>Doopanahalli, Indiranagar</p>
+        <p>Bengaluru, Karnataka 560008</p>
+        
+        <div className="mt-3 pt-3 flex flex-col gap-1 border-t border-gray-200/50">
+          <p className="text-[9px] font-bold uppercase text-gray-400">GSTIN: 29AAACP3423F1Z5</p>
+          <p className="text-[10px] text-black font-bold uppercase tracking-tighter">
+            Store Lead: {currentReceipt.associate}
+          </p>
+        </div>
       </div>
     )}
-
   </div>
-
 
   {/* Terms */}
   <button
-    className="w-full text-xs text-gray-500 hover:text-[#E31837] h-6 font-medium"
+    className="w-full text-[10px] text-gray-400 hover:text-black h-8 font-bold uppercase tracking-widest transition-colors"
     onClick={() => setShowTerms(!showTerms)}
   >
     Terms & Conditions {showTerms ? "▲" : "▼"}
   </button>
 
   {showTerms && (
-    <div className="text-[11px] text-gray-500 mt-2 space-y-1 px-2 font-medium">
-
-      <p>• Domino's offers and coupons are subject to availability and store participation.</p>
-      <p>• Offers may vary by location and delivery zone.</p>
-      <p>• Prices include applicable GST.</p>
-      <p>• For support visit www.dominos.co.in/support.</p>
-
+    <div className="text-[10px] text-gray-500 mt-3 space-y-2 px-4 font-medium leading-relaxed uppercase tracking-tighter border-l-2 border-gray-100">
+      <p>• Returns accepted within 14 days with original tags and receipt.</p>
+      <p>• Warranty on footwear is limited to manufacturing defects only.</p>
+      <p>• PUMA AdvoCAT points are credited after the 14-day cooling period.</p>
+      <p>• For online support visit in.puma.com/support.</p>
     </div>
   )}
 
-
   {/* Powered by RDEP */}
-  <div className="text-center mt-3 pt-3 border-t border-gray-100">
-
-    <div className="flex items-center justify-center space-x-1">
-
-      <span className="text-xs text-gray-400 font-medium">
+  <div className="text-center mt-6 pt-6 border-t border-gray-100">
+    <div className="flex items-center justify-center space-x-2">
+      <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">
         Powered by
       </span>
-
       <a
         href="https://www.rdep.io"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center"
+        className="inline-flex items-center opacity-80 hover:opacity-100 transition-opacity"
       >
         <Image
           src="/images/design-mode/RDEP%20cropped.png"
           alt="RDEP"
-          width={60}
-          height={16}
+          width={55}
+          height={14}
           className="object-contain"
         />
       </a>
-
     </div>
-
   </div>
-
 </div>
           <div id="height-marker" style={{ height: "1px" }} />
         </div>
@@ -1929,53 +1900,43 @@ Powered by RDEP
 
         {/* Transaction History Modal */}
 {showTransactionHistory && (
-  <div className="fixed inset-0 z-[9999] flex items-center justify-center">
+  <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
 
     {/* Backdrop */}
     <div
-      className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+      className="absolute inset-0 bg-black/60 backdrop-blur-md"
       onClick={() => setShowTransactionHistory(false)}
     />
 
     {/* Modal */}
-    <div className="relative bg-white rounded-2xl w-full max-w-sm mx-4 shadow-2xl border border-gray-200 font-poppins overflow-hidden">
+    <div className="relative bg-white rounded-3xl w-full max-w-sm shadow-2xl border border-gray-100 overflow-hidden">
 
       {/* Header */}
-      <div className="flex justify-between items-center p-4 border-b border-gray-100">
+      <div className="flex justify-between items-center p-5 bg-black">
 
         <div className="flex items-center">
-
-          <div className="bg-[#E31837] p-2 rounded-lg mr-3">
+          <div className="bg-[#BA2C2F] p-2 rounded-lg mr-3 shadow-lg shadow-red-900/20">
             <History className="h-4 w-4 text-white" />
           </div>
-
-          <h3 className="text-sm font-semibold text-gray-900">
-            Order History
+          <h3 className="text-sm font-bold uppercase tracking-widest text-white">
+            History
           </h3>
-
         </div>
 
         <button
-          className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100"
+          className="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-colors"
           onClick={() => setShowTransactionHistory(false)}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            className="h-4 w-4 text-gray-500"
-          >
-            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2"/>
-          </svg>
+          <X className="h-4 w-4 text-white" />
         </button>
 
       </div>
 
 
       {/* Transaction List */}
-      <div className="max-h-80 overflow-y-auto p-4 space-y-3">
+      <div className="max-h-96 overflow-y-auto p-4 space-y-3 bg-gray-50/50">
 
         {transactionHistory.map((transaction) => (
-
           <button
             key={transaction.id}
             onClick={() => {
@@ -1983,33 +1944,36 @@ Powered by RDEP
               setShowTransactionHistory(false)
               window.scrollTo({ top: 0, behavior: "smooth" })
             }}
-            className="w-full flex items-center p-3 bg-gray-50 border border-gray-200 rounded-xl hover:border-[#E31837] transition"
+            className="w-full flex items-center p-4 bg-white border border-gray-100 rounded-2xl hover:border-black hover:shadow-md transition-all active:scale-[0.98]"
           >
 
-            <div className="bg-white border border-gray-200 p-2 rounded-lg mr-3">
-              <FileText className="h-4 w-4 text-[#006491]" />
+            <div className="bg-gray-50 border border-gray-100 p-2.5 rounded-xl mr-4">
+              <FileText className="h-4 w-4 text-black" />
             </div>
 
             <div className="flex-grow text-left">
-
-              <div className="text-sm font-semibold text-gray-900">
-                Domino's
+              <div className="text-[11px] font-bold uppercase tracking-tight text-black">
+                PUMA Store
               </div>
-
-              <div className="text-[11px] text-gray-500">
+              <div className="text-[10px] font-medium text-gray-400 uppercase tracking-tighter">
                 {transaction.date}
               </div>
-
             </div>
 
-            <div className="text-sm font-semibold text-[#006491]">
+            <div className="text-xs font-bold text-black tabular-nums">
               ₹{transaction.amount.toFixed(2)}
             </div>
 
           </button>
-
         ))}
 
+      </div>
+
+      {/* Footer Branding */}
+      <div className="p-4 bg-white border-t border-gray-100 text-center">
+        <p className="text-[9px] font-bold text-gray-300 uppercase tracking-widest">
+          Showing last {transactionHistory.length} transactions
+        </p>
       </div>
 
     </div>
