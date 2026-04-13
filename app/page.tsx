@@ -1243,7 +1243,7 @@ body {
   </Carousel>
 </div>
           
-        {/* Join PUMA AdvoCAT Section */}
+        {/* Join Membership Section */}
 <div className="bg-white rounded-3xl shadow-xl border border-gray-100 mx-4 mt-6 p-6">
   
   {profileUpdateSuccess ? (
@@ -1253,11 +1253,11 @@ body {
       </div>
       
       <div className="text-sm font-bold uppercase tracking-tight text-black mb-1">
-        AdvoCAT Membership Active
+        Membership Activated
       </div>
       
       <div className="text-[11px] text-gray-500 font-medium uppercase tracking-widest px-6">
-        Welcome to the team. Your performance perks are now ready for use.
+        Registration complete. Your profile has been updated successfully.
       </div>
     </div>
   ) : (
@@ -1269,15 +1269,15 @@ body {
         </div>
         <div>
           <div className="text-sm font-bold uppercase tracking-tight text-black">
-            Join the AdvoCAT Team
+            Complete Your Profile
           </div>
           <div className="text-[10px] font-medium text-gray-400 uppercase tracking-widest leading-relaxed">
-            Unlock exclusive drops, performance rewards, and faster checkout
+            Get personalized updates, exclusive access, and faster checkout
           </div>
         </div>
       </div>
 
-      {/* Modern High-Contrast Form */}
+      {/* Form */}
       <div className="space-y-4">
         <div className="space-y-1.5">
           <label className="text-[9px] font-bold text-gray-400 uppercase tracking-[0.1em] ml-1">
@@ -1288,7 +1288,7 @@ body {
             placeholder="Athlete Name"
             value={profile.name}
             onChange={(e) => setProfile((prev) => ({ ...prev, name: e.target.value }))}
-            className="w-full h-12 px-4 text-xs font-semibold bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:border-[#BA2C2F] focus:bg-white transition-all placeholder:text-gray-300 uppercase italic"
+            className="w-full h-12 px-4 text-xs font-semibold bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:border-[#BA2C2F] focus:bg-white transition-all placeholder:text-gray-300 uppercase"
           />
         </div>
 
@@ -1321,43 +1321,42 @@ body {
         </div>
       </div>
 
-      {/* CTA: Brand Heavy */}
       <button
-        className="w-full mt-8 bg-black text-white h-14 text-[11px] font-bold uppercase italic tracking-[0.2em] rounded-xl shadow-xl hover:bg-[#BA2C2F] transition-all active:scale-[0.98]"
+        className="w-full mt-8 bg-black text-white h-14 text-[11px] font-bold uppercase tracking-[0.2em] rounded-xl shadow-xl hover:bg-[#BA2C2F] transition-all active:scale-[0.98]"
         onClick={handleProfileUpdate}
       >
-        Activate Membership
+        Update Profile
       </button>
 
-      {/* Compliance / Helper text */}
       <div className="text-[9px] font-medium text-gray-400 text-center mt-4 px-4 leading-relaxed uppercase tracking-tighter">
-        By joining, you agree to PUMA's <span className="underline text-black">Terms of Service</span> and to receive personalized performance updates.
+        By continuing, you agree to PUMA's <span className="underline text-black">Terms of Service</span> and Privacy Policy.
       </div>
     </>
   )}
 </div>
-          {/* PUMA AdvoCAT Loyalty Section */}
+          
+         {/* Purchase Rewards Section */}
 <div className="bg-white rounded-3xl shadow-xl border border-gray-100 mt-6 mx-4 p-6">
   
-  {/* Header: Branding shifted to AdvoCAT */}
+  {/* Header */}
   <div className="flex items-center justify-between mb-6">
     <div className="flex items-center">
       <div className="w-8 h-8 bg-[#BA2C2F] rounded-lg flex items-center justify-center mr-3 shadow-lg shadow-[#BA2C2F]/20">
         <Trophy className="h-4 w-4 text-white" />
       </div>
       <div>
-        <h3 className="text-sm font-bold uppercase tracking-tight text-black">AdvoCAT Rewards</h3>
-        <p className="text-[10px] font-medium text-gray-400 uppercase tracking-widest">Elite Member Status</p>
+        <h3 className="text-sm font-bold uppercase tracking-tight text-black">My Rewards</h3>
+        <p className="text-[10px] font-medium text-gray-400 uppercase tracking-widest">Active Status</p>
       </div>
     </div>
     <div className="text-right">
-      <span className="text-[10px] font-bold bg-black text-white px-3 py-1 rounded-full uppercase italic">
-        Pro Tier
+      <span className="text-[10px] font-bold bg-black text-white px-3 py-1 rounded-full uppercase">
+        Member
       </span>
     </div>
   </div>
 
-  {/* Points Overview: High-contrast Grid */}
+  {/* Points Overview */}
   <div className="grid grid-cols-2 gap-4 mb-6">
     <div className="bg-gray-50 rounded-2xl p-4 border border-gray-100">
       <div className="text-[9px] font-bold text-gray-400 uppercase tracking-tighter mb-1">Points Earned</div>
@@ -1373,19 +1372,18 @@ body {
     </div>
   </div>
 
-  {/* Tier Progress: Sophisticated Performance Bar */}
+  {/* Progress Bar */}
   <div className="bg-black rounded-2xl p-5 shadow-xl shadow-black/10">
     <div className="flex justify-between items-end mb-3">
       <div>
-        <div className="text-[10px] font-bold text-white/50 uppercase tracking-widest">Next Tier</div>
-        <div className="text-sm font-bold text-white uppercase italic">Elite Status</div>
+        <div className="text-[10px] font-bold text-white/50 uppercase tracking-widest">Next Goal</div>
+        <div className="text-sm font-bold text-white uppercase">Unlocked Benefits</div>
       </div>
       <div className="text-right">
         <span className="text-xs font-bold text-white tracking-tighter">₹15,000 / ₹25,000</span>
       </div>
     </div>
 
-    {/* Custom Progress Bar */}
     <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden mb-3">
       <div 
         className="h-full bg-[#BA2C2F] rounded-full relative"
@@ -1395,20 +1393,19 @@ body {
       </div>
     </div>
 
-    <p className="text-[10px] font-medium text-white/60 leading-relaxed">
-      Spend <span className="text-white font-bold italic">₹10,000</span> more to unlock 15% point multipliers and exclusive event access.
+    <p className="text-[10px] font-medium text-white/60 leading-relaxed uppercase tracking-tight">
+      Reach <span className="text-white font-bold">₹25,000</span> total spend to unlock additional multipliers and event access.
     </p>
   </div>
 
-  {/* Reward Vouchers: The "Journey" */}
+  {/* Perks */}
   <div className="mt-6">
     <div className="text-[11px] font-bold text-black uppercase tracking-widest mb-4 flex items-center">
       <Zap className="h-3 w-3 mr-2 text-[#BA2C2F]" />
-      Active Performance Perks
+      Active Perks
     </div>
 
     <div className="space-y-3">
-      {/* Voucher 1 */}
       <div className="flex items-center justify-between p-3 border border-dashed border-gray-200 rounded-xl bg-gray-50/50">
         <div className="flex items-center">
           <div className="w-10 h-10 bg-white border border-gray-100 rounded-lg flex items-center justify-center mr-3">
@@ -1416,15 +1413,14 @@ body {
           </div>
           <div>
             <div className="text-[11px] font-bold text-black uppercase">₹500 Off Voucher</div>
-            <div className="text-[9px] font-medium text-gray-400 uppercase">Expires in 12 Days</div>
+            <div className="text-[9px] font-medium text-gray-400 uppercase tracking-tighter">Expires in 12 Days</div>
           </div>
         </div>
-        <button className="text-[10px] font-bold text-[#BA2C2F] uppercase tracking-tighter">
+        <button className="text-[10px] font-bold text-[#BA2C2F] uppercase tracking-tighter hover:underline">
           Redeem
         </button>
       </div>
 
-      {/* Birthday Perk */}
       <div className="flex items-center justify-between p-3 border border-gray-100 rounded-xl">
         <div className="flex items-center opacity-50">
           <div className="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center mr-3">
@@ -1432,7 +1428,7 @@ body {
           </div>
           <div>
             <div className="text-[11px] font-bold text-black uppercase">Birthday Surprise</div>
-            <div className="text-[9px] font-medium text-gray-400 uppercase">Unlocked in June</div>
+            <div className="text-[9px] font-medium text-gray-400 uppercase tracking-tighter">Available in June</div>
           </div>
         </div>
         <Lock className="h-3 w-3 text-gray-300 mr-2" />
@@ -1440,7 +1436,7 @@ body {
     </div>
   </div>
 
-  {/* CTA: Portal Link */}
+  {/* CTA */}
   <div className="mt-6 pt-6 border-t border-gray-100">
     <a
       href="https://in.puma.com/in/en/account/"
@@ -1448,7 +1444,7 @@ body {
       rel="noopener noreferrer"
       className="group flex items-center justify-center w-full bg-gray-50 hover:bg-black hover:text-white border border-gray-200 rounded-xl py-3 transition-all duration-300"
     >
-      <span className="text-xs font-bold uppercase tracking-widest mr-2">AdvoCAT Portal</span>
+      <span className="text-xs font-bold uppercase tracking-widest mr-2">Account Portal</span>
       <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
     </a>
   </div>
